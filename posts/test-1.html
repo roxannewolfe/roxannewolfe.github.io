@@ -11,15 +11,24 @@
 <body>
     <h1>Hello world</h1>
     <p>This is a template blog post. It contains</p>
+    <!-- <ul> is an "unordered list" (bullet points), made of <li> ("list item") -->
     <ul>
         <li>Lists</li>
         <li>Text</li>
         <li>Images</li>
     </ul>
+    <!-- <br> to start a new line (not needed for some elements like <h1> which automatically
+        start a new line under them) -->
     <br>
+    <!-- An image has a src tag which links to where the image file is stored in the 
+     repository, and you can optionally set the height or width -->
     <img src="../assets/test-image.png" height="250">
     <br>
+    <!-- Here I have a button triggering some javascript code. The general practice is to have
+     the javascript code in a separate file that you import with a <script> tag, but since
+    this button only does one thing rather than a big function I've just put it in directly. -->
     Interactive stuff? <button onclick="alert('hi')">Click me</button>
+    <!-- <hr> is a divider with a horizontal line, nice for footnotes or dividing sections idk -->
     <hr>
     <small><a href="/">Back</a></small>
 </body>

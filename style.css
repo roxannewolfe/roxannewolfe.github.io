@@ -1,10 +1,14 @@
 /* Here you can do style stuff for the website. I'm bad at design so I'll just do some example thing.
 Search up CSS for more info on how this works */
 
+/* This for example sets style attributes for any element 
+of the type "body" (of which is there is only one per page and it contains everything) */
 body {
     padding: 0 25px;
 }
 
+/* This is setting stuff for any element with class="posts-container".
+There's one on the index page. */
 .posts-container {
     background-color: #c2d6ff;
     border-radius: 15px;
