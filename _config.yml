@@ -1,0 +1,20 @@
+title: Untitled Journal
+description: A small journal of academic and personal life by Roxanne Maclaurin Wolfe.
+url: "https://roxannewolfe.github.io"
+baseurl: ""
+
+collections:
+  publications:
+    output: true
+    permalink: /publication/:name/
+  blog:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: publication
+
+markdown: kramdown
