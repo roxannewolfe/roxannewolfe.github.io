@@ -1,0 +1,12 @@
+/* Here you can do style stuff for the website. I'm bad at design so I'll just do some example thing.
+Search up CSS for more info on how this works */
+
+body {
+    padding: 0 25px;
+}
+
+.posts-container {
+    background-color: #c2d6ff;
+    border-radius: 15px;
+    padding: 15px;
+}
