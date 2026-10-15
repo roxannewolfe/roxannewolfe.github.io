@@ -1,0 +1,10 @@
+date: 2026-10-15
+title: State of Affairs
+body: >
+  This is the journal's changing front-page note. It can talk about recent writing,
+  current projects, films, events, or whatever is happening around the work.
+links:
+  - label: Browse the archive
+    url: /archive/
+  - label: Read the blog
+    url: /blog/
