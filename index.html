@@ -1,25 +1,41 @@
-<!DOCTYPE html>
-<!-- All this stuff at the top is just default metadata stuff, can ignore -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Here I'm importing the style.css file so you can change fonts, colours, etc. -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- This sets the title that shows up in the tab -->
-    <title>Roxanne Wolfe</title>
-</head>
+---
+layout: default
+title: Home
+---
+<section class="home-console">
+  <header>
+    <p>Independent journal / Roxanne Maclaurin Wolfe</p>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </header>
 
-<!-- The <body> element contains all the actual content of the page -->
-<body>
-    <h1>It works!</h1>
-    <p>The journal will live here.</p>
-    <hr>
-    <h2>Posts</h2>
-    <!-- A div is basically a section of stuff, which can have separate styling/layout stuff -->
-    <div class="posts-container">
-        <!-- An <a> is a link, the href tag is what it links to -->
-        <a href="./posts/test-1.html">Hello world</a>
-    </div>
-</body>
-</html>
+  <nav class="home-links" aria-label="Journal sections">
+    <a href="{{ '/archive/' | relative_url }}">Everything</a>
+    <a href="{{ '/archive/?type=essay' | relative_url }}">Essays</a>
+    <a href="{{ '/archive/?type=review' | relative_url }}">Reviews</a>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <a href="{{ '/about/' | relative_url }}">About this journal</a>
+    <a href="{{ '/events/' | relative_url }}">Events</a>
+  </nav>
+
+  <section class="state-of-affairs">
+    <p><time datetime="{{ site.data.state.date }}">{{ site.data.state.date | date: "%d %B %Y" }}</time></p>
+    <h2>{{ site.data.state.title }}</h2>
+    <p>{{ site.data.state.body }}</p>
+    {% if site.data.state.links %}
+      <p>
+        {% for link in site.data.state.links %}
+          <a href="{{ link.url | relative_url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+  </section>
+
+  <section class="home-latest">
+    <h2>Latest publications</h2>
+    {% assign latest = site.publications | sort: "date" | reverse %}
+    {% for item in latest limit:3 %}
+      {% include publication-card.html item=item %}
+    {% endfor %}
+  </section>
+</section>

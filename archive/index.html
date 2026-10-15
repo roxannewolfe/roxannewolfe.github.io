@@ -1,0 +1,36 @@
+---
+layout: default
+title: Archive
+---
+<section class="archive-page">
+  <h1>Archive</h1>
+  <p>All publications live here. Filters are progressive enhancement: without JavaScript, everything remains visible.</p>
+
+  <div class="archive-filters" aria-label="Archive filters">
+    <button type="button" data-filter-type="all">All</button>
+    <button type="button" data-filter-type="essay">Essays</button>
+    <button type="button" data-filter-type="review">Reviews</button>
+    <button type="button" data-filter-type="other">Other</button>
+  </div>
+
+  <div id="topic-filters" class="topic-filters" aria-label="Topic filters">
+    {% assign all_topics = site.publications | map: "topics" | compact | join: "," | split: "," | uniq | sort %}
+    {% for topic in all_topics %}
+      {% assign clean_topic = topic | strip %}
+      {% if clean_topic != "" %}
+        <button type="button" data-filter-topic="{{ clean_topic | downcase | slugify }}">{{ clean_topic }}</button>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <p id="archive-filter-status" aria-live="polite"></p>
+
+  <div id="publication-archive">
+    {% assign publications = site.publications | sort: "date" | reverse %}
+    {% for item in publications %}
+      {% include publication-card.html item=item %}
+    {% endfor %}
+  </div>
+</section>
+
+<script src="{{ '/assets/js/archive-filter.js' | relative_url }}" defer></script>

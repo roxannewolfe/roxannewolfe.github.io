@@ -1,0 +1,118 @@
+/* Structural stylesheet only. Final visual design will replace most of this. */
+
+:root {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0 1rem;
+  background: #171717;
+  color: #f5f5f5;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header,
+.site-footer,
+main {
+  width: min(100%, 70rem);
+  margin: 0 auto;
+}
+
+.site-header,
+.site-footer {
+  padding: 1rem 0;
+}
+
+.site-title {
+  font-weight: bold;
+}
+
+.site-nav,
+.home-links,
+.archive-filters,
+.topic-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+main {
+  padding: 2rem 0 4rem;
+}
+
+.state-of-affairs,
+.publication-card,
+.blog-entry,
+.soundtrack,
+.about-journal,
+.about-author {
+  border: 1px solid currentColor;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.publication-type {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.blog-page {
+  display: grid;
+  grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.blog-page > h1,
+.blog-page > p {
+  grid-column: 1 / -1;
+}
+
+.blog-dates {
+  align-self: start;
+  position: sticky;
+  top: 1rem;
+}
+
+.blog-entry--publication-note {
+  border-width: 3px;
+}
+
+.about-author {
+  display: grid;
+  grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.author-photo-placeholder {
+  min-height: 12rem;
+  border: 1px dashed currentColor;
+  display: grid;
+  place-items: center;
+}
+
+button[aria-pressed="true"] {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .blog-page,
+  .about-author {
+    display: block;
+  }
+
+  .blog-dates {
+    position: static;
+  }
+}
