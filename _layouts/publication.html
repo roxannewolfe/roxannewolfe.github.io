@@ -1,0 +1,39 @@
+---
+layout: default
+---
+<article class="publication">
+  <header class="publication-header">
+    <p class="publication-type">{{ page.type | default: 'publication' }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="publication-subtitle">{{ page.subtitle }}</p>{% endif %}
+    <p class="publication-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>
+      {% if page.topics and page.topics.size > 0 %}
+        · {{ page.topics | join: ", " }}
+      {% endif %}
+    </p>
+  </header>
+
+  {% if page.summary %}
+    <p class="publication-summary">{{ page.summary }}</p>
+  {% endif %}
+
+  {% if page.soundtrack %}
+    <section class="soundtrack" aria-label="Reading soundtrack">
+      <strong>Reading soundtrack:</strong>
+      {{ page.soundtrack.title }}{% if page.soundtrack.artist %} — {{ page.soundtrack.artist }}{% endif %}
+      {% if page.soundtrack.file %}
+        <audio controls preload="metadata">
+          <source src="{{ page.soundtrack.file | relative_url }}">
+          Your browser does not support the audio element.
+        </audio>
+      {% endif %}
+    </section>
+  {% endif %}
+
+  <div class="publication-body">
+    {{ content }}
+  </div>
+
+  <p><a href="{{ '/archive/' | relative_url }}">Back to archive</a></p>
+</article>
