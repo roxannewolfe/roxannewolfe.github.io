@@ -1,0 +1,42 @@
+---
+layout: default
+title: Blog
+---
+<section class="blog-page">
+  <h1>Blog</h1>
+  <p>An ongoing stream of life, reading, films, work, and notes around the publications.</p>
+
+  <aside class="blog-dates" aria-label="Blog dates">
+    <h2>Dates</h2>
+    {% assign blog_entries = site.blog | sort: "date" | reverse %}
+    {% assign current_year = "" %}
+    {% for entry in blog_entries %}
+      {% assign year = entry.date | date: "%Y" %}
+      {% if year != current_year %}
+        {% if current_year != "" %}</ul>{% endif %}
+        <h3>{{ year }}</h3>
+        <ul>
+        {% assign current_year = year %}
+      {% endif %}
+      <li><a href="#blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">{{ entry.date | date: "%d %b" }}</a></li>
+    {% endfor %}
+    {% if blog_entries.size > 0 %}</ul>{% endif %}
+  </aside>
+
+  <div class="blog-stream">
+    {% for entry in blog_entries %}
+      <article class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+        <header>
+          <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
+          {% if entry.title %}<h2>{{ entry.title }}</h2>{% endif %}
+          {% if entry.kind == "publication-note" %}<p><strong>Publication note</strong></p>{% endif %}
+        </header>
+        {{ entry.content }}
+        {% if entry.related_publication %}
+          {% assign related = site.publications | where: "slug", entry.related_publication | first %}
+          {% if related %}<p><a href="{{ related.url | relative_url }}">Related publication: {{ related.title }}</a></p>{% endif %}
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
