@@ -4,10 +4,10 @@ title: Blog
 ---
 <section class="blog-page">
   <h1>Blog</h1>
-  <p>An ongoing stream of life, reading, films, work, and notes around the publications.</p>
+  <p>An ongoing stream of life, reading, films, work, and discussion around the publications.</p>
 
-  {% assign essay_notes = site.publications | where: "type", "essay" %}
-  {% assign blog_entries = site.blog | concat: essay_notes | sort: "date" | reverse %}
+  {% assign publication_notes = site.publications | where_exp: "item", "item.blog_note" %}
+  {% assign blog_entries = site.blog | concat: publication_notes | sort: "date" | reverse %}
 
   <aside class="blog-dates" aria-label="Blog dates">
     <h2>Dates</h2>
@@ -20,7 +20,7 @@ title: Blog
         <ul>
         {% assign current_year = year %}
       {% endif %}
-      {% if entry.type == "essay" %}
+      {% if entry.blog_note %}
         {% assign entry_anchor = entry.slug | prepend: "blog-publication-" %}
       {% else %}
         {% capture entry_anchor %}blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}{% endcapture %}
@@ -32,14 +32,14 @@ title: Blog
 
   <div class="blog-stream">
     {% for entry in blog_entries %}
-      {% if entry.type == "essay" %}
+      {% if entry.blog_note %}
         <article class="blog-entry blog-entry--publication-note" id="blog-publication-{{ entry.slug }}">
           <header>
             <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
             <h2>About {{ entry.title }}</h2>
-            <p><strong>Publication note</strong></p>
+            <p><strong>Companion discussion</strong></p>
           </header>
-          <p>{{ entry.author_note | default: entry.summary }}</p>
+          <p>{{ entry.blog_note }}</p>
           <p><a href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a></p>
         </article>
       {% else %}
