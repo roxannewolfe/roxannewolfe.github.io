@@ -20,7 +20,12 @@ title: Blog
         <ul>
         {% assign current_year = year %}
       {% endif %}
-      <li><a href="#blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">{{ entry.date | date: "%d %b" }}</a></li>
+      {% if entry.type == "essay" %}
+        {% assign entry_anchor = entry.slug | prepend: "blog-publication-" %}
+      {% else %}
+        {% capture entry_anchor %}blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}{% endcapture %}
+      {% endif %}
+      <li><a href="#{{ entry_anchor }}">{{ entry.date | date: "%d %b" }}</a></li>
     {% endfor %}
     {% if blog_entries.size > 0 %}</ul>{% endif %}
   </aside>
@@ -28,7 +33,7 @@ title: Blog
   <div class="blog-stream">
     {% for entry in blog_entries %}
       {% if entry.type == "essay" %}
-        <article class="blog-entry blog-entry--publication-note" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+        <article class="blog-entry blog-entry--publication-note" id="blog-publication-{{ entry.slug }}">
           <header>
             <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
             <h2>About {{ entry.title }}</h2>
