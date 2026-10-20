@@ -11,6 +11,7 @@
   {% if page.extra_css %}
     <link rel="stylesheet" href="{{ page.extra_css | relative_url }}?v={{ asset_version }}">
   {% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}?v={{ asset_version }}">
 </head>
 <body>
   <header class="site-header">
