@@ -3,37 +3,40 @@ layout: default
 ---
 <article class="publication">
   <header class="publication-header">
-    <p class="publication-type">{{ page.type | default: 'publication' }}</p>
-    <h1>{{ page.title }}</h1>
-    {% if page.subtitle %}<p class="publication-subtitle">{{ page.subtitle }}</p>{% endif %}
-    <p class="publication-meta">
+    <div class="publication-kicker">
+      <span class="publication-type">{{ page.type | default: 'publication' }}</span>
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>
-      {% if page.topics and page.topics.size > 0 %}
-        · {{ page.topics | join: ", " }}
-      {% endif %}
-    </p>
+    </div>
+
+    <h1 class="publication-title">{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="publication-subtitle">{{ page.subtitle }}</p>{% endif %}
+
+    {% if page.topics and page.topics.size > 0 %}
+      <nav class="publication-topics" aria-label="Publication topics">
+        {% for topic in page.topics %}
+          <a class="topic-chip topic-chip--{{ forloop.index0 | modulo: 4 }}" href="{{ '/archive/' | relative_url }}?topic={{ topic | url_encode }}">{{ topic }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
   </header>
 
-  {% if page.summary %}
-    <p class="publication-summary">{{ page.summary }}</p>
-  {% endif %}
-
-  {% if page.soundtrack %}
-    <section class="soundtrack" aria-label="Reading soundtrack">
-      <strong>Reading soundtrack:</strong>
-      {{ page.soundtrack.title }}{% if page.soundtrack.artist %} — {{ page.soundtrack.artist }}{% endif %}
-      {% if page.soundtrack.file %}
-        <audio controls preload="metadata">
-          <source src="{{ page.soundtrack.file | relative_url }}">
-          Your browser does not support the audio element.
-        </audio>
-      {% endif %}
-    </section>
+  {% if page.author_note %}
+    <aside class="author-note" aria-label="Author's note">
+      <p class="author-note-label">Author's note</p>
+      <blockquote>“{{ page.author_note }}”</blockquote>
+    </aside>
+  {% elsif page.summary %}
+    <aside class="author-note" aria-label="Author's note">
+      <p class="author-note-label">Author's note</p>
+      <blockquote>“{{ page.summary }}”</blockquote>
+    </aside>
   {% endif %}
 
   <div class="publication-body">
     {{ content }}
   </div>
 
-  <p><a href="{{ '/archive/' | relative_url }}">Back to archive</a></p>
+  <footer class="publication-footer">
+    <a href="{{ '/archive/' | relative_url }}">Back to archive</a>
+  </footer>
 </article>
