@@ -32,11 +32,11 @@
   border-radius: 999px;
 }
 
-.findme-type--essay span {
+.findme-type--discourse span {
   background: rgb(132, 86, 184);
 }
 
-.findme-type--review span {
+.findme-type--cultural span {
   background: rgb(213, 126, 58);
 }
 
@@ -94,11 +94,11 @@
   text-decoration-thickness: 2px;
 }
 
-.blog-entry--essay {
+.blog-entry--discourse {
   border-left: 0.5rem solid rgb(132, 86, 184);
 }
 
-.blog-entry--review {
+.blog-entry--cultural {
   border-left: 0.5rem solid rgb(213, 126, 58);
 }
 
@@ -110,8 +110,8 @@
   border-left: 0.32rem solid rgb(135, 135, 135);
 }
 
-.blog-entry--essay .blog-entry-summary,
-.blog-entry--review .blog-entry-summary {
+.blog-entry--discourse .blog-entry-summary,
+.blog-entry--cultural .blog-entry-summary {
   min-height: 12rem;
 }
 
@@ -157,6 +157,11 @@
   display: none !important;
 }
 
+.blog-page > h1 {
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
 @media (max-width: 700px) {
   .findme-types {
     margin-bottom: 1rem;
@@ -168,8 +173,8 @@
     gap: 1.25rem;
   }
 
-  .blog-entry--essay .blog-entry-summary,
-  .blog-entry--review .blog-entry-summary,
+  .blog-entry--discourse .blog-entry-summary,
+  .blog-entry--cultural .blog-entry-summary,
   .blog-entry--slice-of-life .blog-entry-summary,
   .blog-entry--blog .blog-entry-summary {
     min-height: 0;
