@@ -18,14 +18,10 @@ This is a placeholder essay. It exists to test the finished reading structure ra
 
 ## A section heading
 
-The article itself is ordinary Markdown, which means the publication file remains readable and easy to edit even when the website around it becomes more elaborate.
+The article itself is ordinary Markdown, which means the publication file remains readable and easy to edit even when the website around it becomes more elaborate. You can add notes like {% include note.html type="note" text="this" note="This expandable note is authored inside the essay file and appears directly beneath the sentence when opened." %} and keep writing normally after the highlighted text.
 
-{% include note.html type="context" text="A highlighted contextual note" note="This expandable note is authored inside the essay file. Later, different semantic note types can receive different colours without changing the essay text." %}
-
-A normal paragraph can continue after an annotation. Citations can use standard Markdown footnotes, so the citation information also stays in this file.[^1]
+Citations work the same way in the flow of a sentence. A claim can carry its source on {% include note.html type="citation" text="the relevant words" note="Wittgenstein, Ludwig. *Philosophical Investigations*. Translated by G. E. M. Anscombe et al., 4th ed., Wiley-Blackwell, 2009." %}, with the MLA citation revealed only when the reader asks for it.
 
 {% include figure.html src="/assets/test-image.png" alt="A test image used in the structural build" caption="Images can be inserted through one reusable figure component, with their caption written in the publication file." %}
 
 The finished template can add more annotation types, image arrangements, downloads, and other reader tools without changing how the archive stores or finds the publication.
-
-[^1]: Example footnote citation for the structural build.
