@@ -6,9 +6,11 @@ title: Blog
   <h1>Blog</h1>
   <p>An ongoing stream of life, reading, films, work, and notes around the publications.</p>
 
+  {% assign essay_notes = site.publications | where: "type", "essay" %}
+  {% assign blog_entries = site.blog | concat: essay_notes | sort: "date" | reverse %}
+
   <aside class="blog-dates" aria-label="Blog dates">
     <h2>Dates</h2>
-    {% assign blog_entries = site.blog | sort: "date" | reverse %}
     {% assign current_year = "" %}
     {% for entry in blog_entries %}
       {% assign year = entry.date | date: "%Y" %}
@@ -25,18 +27,29 @@ title: Blog
 
   <div class="blog-stream">
     {% for entry in blog_entries %}
-      <article class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
-        <header>
-          <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
-          {% if entry.title %}<h2>{{ entry.title }}</h2>{% endif %}
-          {% if entry.kind == "publication-note" %}<p><strong>Publication note</strong></p>{% endif %}
-        </header>
-        {{ entry.content }}
-        {% if entry.related_publication %}
-          {% assign related = site.publications | where: "slug", entry.related_publication | first %}
-          {% if related %}<p><a href="{{ related.url | relative_url }}">Related publication: {{ related.title }}</a></p>{% endif %}
-        {% endif %}
-      </article>
+      {% if entry.type == "essay" %}
+        <article class="blog-entry blog-entry--publication-note" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+          <header>
+            <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
+            <h2>About {{ entry.title }}</h2>
+            <p><strong>Publication note</strong></p>
+          </header>
+          <p>{{ entry.author_note | default: entry.summary }}</p>
+          <p><a href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a></p>
+        </article>
+      {% else %}
+        <article class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+          <header>
+            <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
+            {% if entry.title %}<h2>{{ entry.title }}</h2>{% endif %}
+          </header>
+          {{ entry.content }}
+          {% if entry.related_publication %}
+            {% assign related = site.publications | where: "slug", entry.related_publication | first %}
+            {% if related %}<p><a href="{{ related.url | relative_url }}">Related publication: {{ related.title }}</a></p>{% endif %}
+          {% endif %}
+        </article>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
