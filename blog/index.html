@@ -5,8 +5,21 @@ extra_css: /assets/css/blog.css
 ---
 <section class="blog-page">
   <header class="blog-intro">
-    <h1>Blog</h1>
-    <p>An ongoing stream of life, reading, films, work, and discussion around the publications.</p>
+    <div class="blog-intro-copy">
+      <h1>Blog</h1>
+      <p>{{ site.data.state.blog.description }}</p>
+    </div>
+
+    <div class="blog-status" aria-label="Current blog status">
+      <p class="blog-status-line">
+        <span class="blog-status-accent blog-status-accent--orange">{{ site.data.state.blog.status.line_one.accent }}</span>
+        <span>{{ site.data.state.blog.status.line_one.text }}</span>
+      </p>
+      <p class="blog-status-line">
+        <span class="blog-status-accent blog-status-accent--purple">{{ site.data.state.blog.status.line_two.accent }}</span>
+        <span>{{ site.data.state.blog.status.line_two.text }}</span>
+      </p>
+    </div>
   </header>
 
   {% assign publication_notes = site.publications | where_exp: "item", "item.blog_note" %}
