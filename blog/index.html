@@ -35,16 +35,16 @@ title: Blog
       {% if entry.blog_note %}
         <details class="blog-entry blog-entry--publication-note" id="blog-publication-{{ entry.slug }}">
           <summary class="blog-entry-summary">
-            <div class="blog-entry-summary-inner">
-              <p class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
-              <h2>About {{ entry.title }}</h2>
-              <p class="blog-entry-kind">{{ entry.type | capitalize }} discussion</p>
+            <span class="blog-entry-summary-inner">
+              <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
+              <span class="blog-entry-title" role="heading" aria-level="2">About {{ entry.title }}</span>
+              <span class="blog-entry-kind">{{ entry.type | capitalize }} discussion</span>
               {% if entry.author_note %}
-                <blockquote class="blog-entry-preview">“{{ entry.author_note }}”</blockquote>
+                <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.author_note }}”</span>
               {% elsif entry.summary %}
-                <blockquote class="blog-entry-preview">“{{ entry.summary }}”</blockquote>
+                <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.summary }}”</span>
               {% endif %}
-            </div>
+            </span>
           </summary>
           <div class="blog-entry-expanded">
             {{ entry.blog_note | markdownify }}
@@ -54,13 +54,13 @@ title: Blog
       {% else %}
         <details class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
           <summary class="blog-entry-summary">
-            <div class="blog-entry-summary-inner">
-              <p class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
-              {% if entry.title %}<h2>{{ entry.title }}</h2>{% endif %}
+            <span class="blog-entry-summary-inner">
+              <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
+              {% if entry.title %}<span class="blog-entry-title" role="heading" aria-level="2">{{ entry.title }}</span>{% endif %}
               {% if entry.preview %}
-                <p class="blog-entry-preview">{{ entry.preview }}</p>
+                <span class="blog-entry-preview">{{ entry.preview }}</span>
               {% endif %}
-            </div>
+            </span>
           </summary>
           <div class="blog-entry-expanded">
             {{ entry.content }}
