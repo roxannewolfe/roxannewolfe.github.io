@@ -24,13 +24,39 @@ main {
   margin: 0 auto;
 }
 
-.site-header,
+.site-header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .site-footer {
   padding: 1rem 0;
 }
 
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 0 0 auto;
+}
+
 .site-title {
   font-weight: bold;
+  text-decoration: none;
+}
+
+.css-status {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: #9fd9b4;
+  box-shadow: 0 0 0 2px rgba(159, 217, 180, 0.16);
 }
 
 .site-nav,
@@ -41,6 +67,20 @@ main {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin: 1rem 0;
+}
+
+.site-header .site-nav {
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.site-header .site-nav a {
+  text-decoration: none;
+}
+
+.site-header .site-nav a:hover,
+.site-header .site-nav a:focus-visible {
+  text-decoration: underline;
 }
 
 main {
@@ -195,35 +235,29 @@ main {
 }
 
 .annotation-trigger {
-  appearance: none;
-  -webkit-appearance: none;
+  all: unset;
   display: inline;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
   font: inherit;
+  color: inherit;
   line-height: inherit;
   letter-spacing: inherit;
-  text-align: inherit;
   vertical-align: baseline;
   cursor: pointer;
 }
 
-.annotation-highlight {
+mark.annotation-highlight {
   margin: 0;
   padding: 0 0.08em;
   border-radius: 0.12em;
-  background: rgba(239, 155, 73, 0.36);
+  background-color: rgba(239, 155, 73, 0.42);
   color: inherit;
   font: inherit;
   line-height: inherit;
   text-decoration: none;
 }
 
-.annotation--citation .annotation-highlight {
-  background: rgba(167, 125, 232, 0.4);
+.annotation--citation mark.annotation-highlight {
+  background-color: rgba(167, 125, 232, 0.48);
 }
 
 .annotation-trigger:hover .annotation-highlight,
@@ -246,6 +280,7 @@ main {
   border-radius: 0.5rem;
   background: #242424;
   box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.28);
+  color: #f5f5f5;
   font-size: 0.92rem;
   line-height: 1.45;
   text-align: left;
@@ -336,6 +371,15 @@ button[aria-pressed="true"] {
 }
 
 @media (max-width: 700px) {
+  .site-header {
+    display: block;
+  }
+
+  .site-header .site-nav {
+    justify-content: flex-start;
+    margin-top: 0.75rem;
+  }
+
   .blog-page,
   .about-author {
     display: block;
