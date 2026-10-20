@@ -1,2 +1,6 @@
-{% assign rendered_note = include.note | markdownify | remove: '<p>' | remove: '</p>' %}
-<button class="reader-note-trigger reader-note-trigger--{{ include.type | default: 'note' }}" type="button" aria-expanded="false">{{ include.text }}</button><span class="reader-note-body reader-note-body--{{ include.type | default: 'note' }}" hidden>{{ rendered_note }}</span>
+<span class="annotation annotation--{{ include.type | default: 'note' }}">
+  <button type="button" class="annotation-trigger" aria-expanded="false">
+    <mark class="annotation-highlight">{{ include.text }}</mark>
+  </button>
+  <span class="annotation-bubble" role="note" hidden>{{ include.note | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+</span>
