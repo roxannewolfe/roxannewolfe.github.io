@@ -8,3 +8,14 @@ links:
     url: /archive/
   - label: Read the blog
     url: /blog/
+
+blog:
+  description: >
+    An ongoing stream of life, reading, films, work, and discussion around the publications.
+  status:
+    line_one:
+      accent: "Genuinely"
+      text: "Tired"
+    line_two:
+      accent: "Pretending About"
+      text: "Nothing in Particular"
