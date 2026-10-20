@@ -33,17 +33,18 @@ title: Blog
   <div class="blog-stream">
     {% for entry in blog_entries %}
       {% if entry.blog_note %}
-        <details class="blog-entry blog-entry--publication-note" id="blog-publication-{{ entry.slug }}">
+        <details class="blog-entry blog-entry--publication-note blog-entry--{{ entry.type | default: 'publication' }}" id="blog-publication-{{ entry.slug }}">
           <summary class="blog-entry-summary">
             <span class="blog-entry-summary-inner">
               <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
               <span class="blog-entry-title" role="heading" aria-level="2">About {{ entry.title }}</span>
-              <span class="blog-entry-kind">{{ entry.type | capitalize }} discussion</span>
+              <span class="blog-entry-kind">AUTHOR'S NOTE</span>
               {% if entry.author_note %}
                 <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.author_note }}”</span>
               {% elsif entry.summary %}
                 <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.summary }}”</span>
               {% endif %}
+              <a class="blog-entry-preview-link" href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a>
             </span>
           </summary>
           <div class="blog-entry-expanded">
@@ -52,14 +53,13 @@ title: Blog
           </div>
         </details>
       {% else %}
-        <details class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+        <details class="blog-entry blog-entry--{{ entry.kind | default: 'blog' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
           <summary class="blog-entry-summary">
             <span class="blog-entry-summary-inner">
               <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
               {% if entry.title %}<span class="blog-entry-title" role="heading" aria-level="2">{{ entry.title }}</span>{% endif %}
-              {% if entry.preview %}
-                <span class="blog-entry-preview">{{ entry.preview }}</span>
-              {% endif %}
+              {% if entry.kind == 'slice-of-life' %}<span class="blog-entry-kind">SLICE OF LIFE</span>{% endif %}
+              {% if entry.preview %}<span class="blog-entry-preview">{{ entry.preview }}</span>{% endif %}
             </span>
           </summary>
           <div class="blog-entry-expanded">
@@ -74,3 +74,5 @@ title: Blog
     {% endfor %}
   </div>
 </section>
+
+<script src="{{ '/assets/js/blog-cards.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
