@@ -20,17 +20,25 @@ layout: default
     {% endif %}
   </header>
 
+  {% if page.type == 'discourse' %}
+    {% assign note_label = 'Discourse' %}
+  {% elsif page.type == 'cultural' %}
+    {% assign note_label = 'Cultural' %}
+  {% else %}
+    {% assign note_label = "Author's note" %}
+  {% endif %}
+
   {% if page.author_note %}
-    <aside class="author-note" aria-label="Author's note">
-      <p class="author-note-label">Author's note</p>
+    <aside class="author-note author-note--{{ page.type | default: 'publication' }}" aria-label="{{ note_label }}">
+      <p class="author-note-label">{{ note_label }}</p>
       <blockquote>“{{ page.author_note }}”</blockquote>
       {% if page.blog_note %}
         <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">Read the companion blog discussion</a></p>
       {% endif %}
     </aside>
   {% elsif page.summary %}
-    <aside class="author-note" aria-label="Author's note">
-      <p class="author-note-label">Author's note</p>
+    <aside class="author-note author-note--{{ page.type | default: 'publication' }}" aria-label="{{ note_label }}">
+      <p class="author-note-label">{{ note_label }}</p>
       <blockquote>“{{ page.summary }}”</blockquote>
       {% if page.blog_note %}
         <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">Read the companion blog discussion</a></p>
