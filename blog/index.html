@@ -33,27 +33,43 @@ title: Blog
   <div class="blog-stream">
     {% for entry in blog_entries %}
       {% if entry.blog_note %}
-        <article class="blog-entry blog-entry--publication-note" id="blog-publication-{{ entry.slug }}">
-          <header>
-            <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
-            <h2>About {{ entry.title }}</h2>
-            <p><strong>Companion discussion</strong></p>
-          </header>
-          <p>{{ entry.blog_note }}</p>
-          <p><a href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a></p>
-        </article>
+        <details class="blog-entry blog-entry--publication-note" id="blog-publication-{{ entry.slug }}">
+          <summary class="blog-entry-summary">
+            <div class="blog-entry-summary-inner">
+              <p class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
+              <h2>About {{ entry.title }}</h2>
+              <p class="blog-entry-kind">{{ entry.type | capitalize }} discussion</p>
+              {% if entry.author_note %}
+                <blockquote class="blog-entry-preview">“{{ entry.author_note }}”</blockquote>
+              {% elsif entry.summary %}
+                <blockquote class="blog-entry-preview">“{{ entry.summary }}”</blockquote>
+              {% endif %}
+            </div>
+          </summary>
+          <div class="blog-entry-expanded">
+            {{ entry.blog_note | markdownify }}
+            <p class="blog-entry-read-link"><a href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a></p>
+          </div>
+        </details>
       {% else %}
-        <article class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
-          <header>
-            <p><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
-            {% if entry.title %}<h2>{{ entry.title }}</h2>{% endif %}
-          </header>
-          {{ entry.content }}
-          {% if entry.related_publication %}
-            {% assign related = site.publications | where: "slug", entry.related_publication | first %}
-            {% if related %}<p><a href="{{ related.url | relative_url }}">Related publication: {{ related.title }}</a></p>{% endif %}
-          {% endif %}
-        </article>
+        <details class="blog-entry blog-entry--{{ entry.kind | default: 'life' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+          <summary class="blog-entry-summary">
+            <div class="blog-entry-summary-inner">
+              <p class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></p>
+              {% if entry.title %}<h2>{{ entry.title }}</h2>{% endif %}
+              {% if entry.preview %}
+                <p class="blog-entry-preview">{{ entry.preview }}</p>
+              {% endif %}
+            </div>
+          </summary>
+          <div class="blog-entry-expanded">
+            {{ entry.content }}
+            {% if entry.related_publication %}
+              {% assign related = site.publications | where: "slug", entry.related_publication | first %}
+              {% if related %}<p class="blog-entry-read-link"><a href="{{ related.url | relative_url }}">Related publication: {{ related.title }}</a></p>{% endif %}
+            {% endif %}
+          </div>
+        </details>
       {% endif %}
     {% endfor %}
   </div>
