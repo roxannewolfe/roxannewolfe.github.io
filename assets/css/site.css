@@ -50,7 +50,6 @@ main {
 .state-of-affairs,
 .publication-card,
 .blog-entry,
-.soundtrack,
 .about-journal,
 .about-author {
   border: 1px solid currentColor;
@@ -58,9 +57,193 @@ main {
   margin: 1rem 0;
 }
 
+.publication {
+  width: min(100%, 58rem);
+  margin: 0 auto;
+}
+
+.publication-header {
+  margin-bottom: 2rem;
+}
+
+.publication-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.92rem;
+}
+
 .publication-type {
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.publication-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 4.6rem);
+  line-height: 1.02;
+}
+
+.publication-subtitle {
+  max-width: 42rem;
+  margin: 0.8rem 0 0;
+  font-size: 1.15rem;
+}
+
+.publication-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+}
+
+.topic-chip {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0.55rem;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.topic-chip:hover,
+.topic-chip:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.topic-chip--0 {
+  background: rgba(166, 207, 255, 0.2);
+}
+
+.topic-chip--1 {
+  background: rgba(255, 184, 214, 0.2);
+}
+
+.topic-chip--2 {
+  background: rgba(198, 235, 190, 0.2);
+}
+
+.topic-chip--3 {
+  background: rgba(241, 213, 153, 0.2);
+}
+
+.author-note {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2rem 0 3rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 0.75rem;
+}
+
+.author-note-label {
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.author-note blockquote {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
+  line-height: 1.45;
+}
+
+.publication-body {
+  width: min(100%, 48rem);
+  margin: 0 auto;
+  font-size: 1.06rem;
+}
+
+.publication-body h2,
+.publication-body h3 {
+  margin-top: 2.5rem;
+}
+
+.publication-body p {
+  margin: 1.15rem 0;
+}
+
+.publication-footer {
+  width: min(100%, 48rem);
+  margin: 3rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.reader-note {
+  margin: 1.25rem 0;
+}
+
+.reader-note-trigger {
+  display: inline-block;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  background: rgba(166, 207, 255, 0.25);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.reader-note--aside .reader-note-trigger {
+  background: rgba(255, 184, 214, 0.25);
+}
+
+.reader-note--citation .reader-note-trigger {
+  background: rgba(198, 235, 190, 0.25);
+}
+
+.reader-note--related .reader-note-trigger {
+  background: rgba(241, 213, 153, 0.25);
+}
+
+.reader-note-body {
+  margin-top: 0.65rem;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid currentColor;
+}
+
+.reader-note-body > :first-child {
+  margin-top: 0;
+}
+
+.reader-note-body > :last-child {
+  margin-bottom: 0;
+}
+
+.publication-figure {
+  margin: 2rem 0;
+}
+
+.publication-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.publication-figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.publication-figure--wide {
+  width: min(70rem, calc(100vw - 2rem));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 0.92rem;
 }
 
 .blog-page {
@@ -114,5 +297,13 @@ button[aria-pressed="true"] {
 
   .blog-dates {
     position: static;
+  }
+
+  .publication-title {
+    font-size: clamp(2.2rem, 14vw, 3.4rem);
+  }
+
+  .author-note {
+    padding: 1rem;
   }
 }
