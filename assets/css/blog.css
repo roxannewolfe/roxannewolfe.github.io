@@ -1,38 +1,54 @@
 .blog-page {
-  row-gap: 1.75rem;
-  margin-top: -1rem;
+  row-gap: 1.45rem;
+  margin-top: -1.35rem;
 }
 
 .blog-intro {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(20rem, 32rem);
-  gap: 2rem;
-  align-items: end;
-  margin: 0 0 0.75rem;
-  padding: 0.55rem 0 1.45rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 29rem);
+  gap: 1.6rem;
+  align-items: center;
+  margin: 0 0 0.45rem;
+  padding: 0.15rem 0 1.15rem;
+}
+
+.blog-intro-copy {
+  align-self: center;
+  padding-top: 0.2rem;
 }
 
 .blog-intro-copy h1 {
   margin: 0;
-  font-size: 1.7rem;
-  line-height: 1.15;
+  font-size: clamp(2rem, 3.4vw, 2.65rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.blog-title-accent {
+  color: rgb(92, 150, 76);
 }
 
 .blog-intro-copy p {
-  max-width: 31rem;
-  margin: 0.45rem 0 0;
+  max-width: 36rem;
+  margin: 0.55rem 0 0;
+  line-height: 1.5;
 }
 
 .blog-status {
-  align-self: end;
+  align-self: center;
   justify-self: start;
-  padding-bottom: 0.05rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 28rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
 }
 
 .blog-status-line {
   margin: 0;
-  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.7rem);
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -0.02em;
@@ -210,14 +226,14 @@
 
 @media (max-width: 700px) {
   .blog-page {
-    row-gap: 1.25rem;
-    margin-top: -0.45rem;
+    row-gap: 1.15rem;
+    margin-top: -0.6rem;
   }
 
   .blog-intro {
     display: block;
-    margin-bottom: 0.7rem;
-    padding: 0.45rem 0 1.1rem;
+    margin-bottom: 0.45rem;
+    padding: 0.2rem 0 0.9rem;
   }
 
   .blog-intro-copy p {
@@ -225,11 +241,13 @@
   }
 
   .blog-status {
-    margin-top: 1.3rem;
+    width: 100%;
+    max-width: none;
+    margin-top: 1rem;
   }
 
   .blog-status-line {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .findme-types {
