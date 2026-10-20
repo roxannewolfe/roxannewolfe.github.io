@@ -1,10 +1,21 @@
 ---
 layout: default
 title: Archive
+extra_css: /assets/css/archive.css
 ---
 <section class="archive-page">
-  <h1>Archive</h1>
-  <p>All publications live here. Filters are progressive enhancement: without JavaScript, everything remains visible.</p>
+  <header class="archive-intro">
+    <h1 id="archive-title">
+      <span id="archive-title-prefix" class="archive-title-prefix" hidden></span>
+      <span>Archive</span>
+    </h1>
+    <p id="archive-description"
+       data-description-all="All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into."
+       data-description-discourse="Discourse gathers longer-form arguments, philosophical explorations, academic work, and other pieces built around sustained ideas and discussion."
+       data-description-cultural="Cultural gathers reviews, media criticism, responses to news, and other commentary on the cultural world around the journal.">
+      All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into.
+    </p>
+  </header>
 
   <div class="archive-filters" aria-label="Archive filters">
     <button type="button" data-filter-type="all">All</button>
@@ -33,4 +44,4 @@ title: Archive
   </div>
 </section>
 
-<script src="{{ '/assets/js/archive-filter.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/archive-filter.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
