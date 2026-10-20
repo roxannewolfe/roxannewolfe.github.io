@@ -1,15 +1,16 @@
 .blog-page {
-  row-gap: 2rem;
+  row-gap: 1.75rem;
+  margin-top: -1rem;
 }
 
 .blog-intro {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
-  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 32rem);
+  gap: 2rem;
   align-items: end;
-  margin: 0 0 0.9rem;
-  padding: 1.4rem 0 1.6rem;
+  margin: 0 0 0.75rem;
+  padding: 0.55rem 0 1.45rem;
 }
 
 .blog-intro-copy h1 {
@@ -19,12 +20,13 @@
 }
 
 .blog-intro-copy p {
-  max-width: 38rem;
+  max-width: 31rem;
   margin: 0.45rem 0 0;
 }
 
 .blog-status {
   align-self: end;
+  justify-self: start;
   padding-bottom: 0.05rem;
 }
 
@@ -209,12 +211,17 @@
 @media (max-width: 700px) {
   .blog-page {
     row-gap: 1.25rem;
+    margin-top: -0.45rem;
   }
 
   .blog-intro {
     display: block;
     margin-bottom: 0.7rem;
-    padding: 0.8rem 0 1.1rem;
+    padding: 0.45rem 0 1.1rem;
+  }
+
+  .blog-intro-copy p {
+    max-width: 100%;
   }
 
   .blog-status {
