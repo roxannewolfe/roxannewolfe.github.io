@@ -24,16 +24,16 @@ layout: default
     <aside class="author-note" aria-label="Author's note">
       <p class="author-note-label">Author's note</p>
       <blockquote>“{{ page.author_note }}”</blockquote>
-      {% if page.type == "essay" %}
-        <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">View this essay's companion blog note</a></p>
+      {% if page.blog_note %}
+        <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">Read the companion blog discussion</a></p>
       {% endif %}
     </aside>
   {% elsif page.summary %}
     <aside class="author-note" aria-label="Author's note">
       <p class="author-note-label">Author's note</p>
       <blockquote>“{{ page.summary }}”</blockquote>
-      {% if page.type == "essay" %}
-        <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">View this essay's companion blog note</a></p>
+      {% if page.blog_note %}
+        <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">Read the companion blog discussion</a></p>
       {% endif %}
     </aside>
   {% endif %}
@@ -46,5 +46,3 @@ layout: default
     <a href="{{ '/archive/' | relative_url }}">Back to archive</a>
   </footer>
 </article>
-
-<script src="{{ '/assets/js/reader-notes.js' | relative_url }}" defer></script>
