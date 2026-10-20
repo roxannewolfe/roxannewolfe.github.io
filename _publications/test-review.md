@@ -1,7 +1,7 @@
 ---
 title: "Test Film Review"
 date: 2026-10-14
-type: review
+type: cultural
 subject: film
 slug: test-review
 topics:
@@ -13,7 +13,7 @@ blog_note: >
   This is the more casual companion discussion for the review. It can hold the observations,
   viewing context, side thoughts, and personal reactions that sit around the finished review
   without needing to become part of the review itself.
-summary: "A dummy review used to test mixed publication types in the shared archive."
+summary: "A dummy cultural commentary piece used to test mixed publication types in the shared archive."
 ---
 
-This is a placeholder review. It confirms that essays and reviews can share one collection while remaining independently filterable.
+This is a placeholder review. It confirms that discourse and cultural commentary can share one collection while remaining independently filterable.
