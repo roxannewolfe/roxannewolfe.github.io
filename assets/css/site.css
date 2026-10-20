@@ -410,17 +410,24 @@ mark.annotation-highlight {
   outline-offset: -3px;
 }
 
-.blog-entry-summary-inner > :first-child {
-  margin-top: 0;
-}
-
-.blog-entry-summary-inner > :last-child {
-  margin-bottom: 0;
+.blog-entry-summary-inner,
+.blog-entry-date,
+.blog-entry-title,
+.blog-entry-kind,
+.blog-entry-preview {
+  display: block;
 }
 
 .blog-entry-date,
 .blog-entry-kind {
   font-size: 0.9rem;
+}
+
+.blog-entry-title {
+  margin: 0.45rem 0 0.65rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .blog-entry-kind {
@@ -429,17 +436,13 @@ mark.annotation-highlight {
   opacity: 0.8;
 }
 
-.blog-entry-summary h2 {
-  margin: 0.45rem 0 0.65rem;
-}
-
 .blog-entry-preview {
   margin: 0.75rem 0 0;
   max-width: 52rem;
   line-height: 1.5;
 }
 
-blockquote.blog-entry-preview {
+.blog-entry-preview--quote {
   padding-left: 1rem;
   border-left: 2px solid rgba(255, 255, 255, 0.35);
   font-size: 1.05rem;
