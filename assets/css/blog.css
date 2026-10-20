@@ -1,0 +1,177 @@
+.findme h2 {
+  margin-top: 0;
+}
+
+.findme-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.8rem 0 1.5rem;
+}
+
+.findme-type {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-grid;
+  place-items: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 130ms ease, border-color 130ms ease, box-shadow 130ms ease;
+}
+
+.findme-type span {
+  display: block;
+  width: 0.82rem;
+  height: 0.82rem;
+  border-radius: 999px;
+}
+
+.findme-type--essay span {
+  background: rgb(132, 86, 184);
+}
+
+.findme-type--review span {
+  background: rgb(213, 126, 58);
+}
+
+.findme-type--slice-of-life span {
+  background: rgb(92, 150, 76);
+}
+
+.findme-type--blog span {
+  background: rgb(135, 135, 135);
+}
+
+.findme-type:hover,
+.findme-type:focus-visible {
+  transform: scale(1.12);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.findme-type[aria-pressed="true"] {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.findme-year {
+  margin: 0 0 1.25rem;
+}
+
+.findme-year h3 {
+  margin: 0 0 0.35rem;
+}
+
+.findme-months {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.findme-month {
+  appearance: none;
+  -webkit-appearance: none;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.findme-month:hover,
+.findme-month:focus-visible {
+  text-decoration-thickness: 2px;
+}
+
+.blog-entry--essay {
+  border-left: 0.5rem solid rgb(132, 86, 184);
+}
+
+.blog-entry--review {
+  border-left: 0.5rem solid rgb(213, 126, 58);
+}
+
+.blog-entry--slice-of-life {
+  border-left: 0.5rem solid rgb(92, 150, 76);
+}
+
+.blog-entry--blog {
+  border-left: 0.32rem solid rgb(135, 135, 135);
+}
+
+.blog-entry--essay .blog-entry-summary,
+.blog-entry--review .blog-entry-summary {
+  min-height: 12rem;
+}
+
+.blog-entry--slice-of-life .blog-entry-summary {
+  min-height: 11rem;
+}
+
+.blog-entry--blog .blog-entry-summary {
+  min-height: 8rem;
+}
+
+.blog-entry--publication-note .blog-entry-kind {
+  color: #fff;
+  opacity: 1;
+  letter-spacing: 0.08em;
+}
+
+.blog-entry-preview--quote {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.blog-entry-preview-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+.blog-entry[open] .blog-entry-preview-link {
+  display: none;
+}
+
+.blog-entry--publication-note .blog-entry-expanded {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.blog-entry--publication-note[open] > .blog-entry-summary {
+  padding-bottom: 0.45rem;
+}
+
+.blog-entry[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .findme-types {
+    margin-bottom: 1rem;
+  }
+
+  .findme-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .blog-entry--essay .blog-entry-summary,
+  .blog-entry--review .blog-entry-summary,
+  .blog-entry--slice-of-life .blog-entry-summary,
+  .blog-entry--blog .blog-entry-summary {
+    min-height: 0;
+  }
+}
