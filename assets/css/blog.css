@@ -1,3 +1,23 @@
+.blog-page {
+  row-gap: 1.25rem;
+}
+
+.blog-intro {
+  grid-column: 1 / -1;
+  margin: 0 0 0.35rem;
+}
+
+.blog-intro h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
+.blog-intro p {
+  max-width: 46rem;
+  margin: 0.35rem 0 0;
+}
+
 .findme h2 {
   margin-top: 0;
 }
@@ -124,7 +144,6 @@
 }
 
 .blog-entry--publication-note .blog-entry-kind {
-  color: #fff;
   opacity: 1;
   letter-spacing: 0.08em;
 }
@@ -157,12 +176,15 @@
   display: none !important;
 }
 
-.blog-page > h1 {
-  font-size: 1.7rem;
-  line-height: 1.15;
-}
-
 @media (max-width: 700px) {
+  .blog-page {
+    row-gap: 1rem;
+  }
+
+  .blog-intro {
+    margin-bottom: 0.25rem;
+  }
+
   .findme-types {
     margin-bottom: 1rem;
   }
