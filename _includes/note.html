@@ -1,6 +1,2 @@
-<details class="reader-note reader-note--{{ include.type | default: 'note' }}">
-  <summary class="reader-note-trigger">{{ include.text }}</summary>
-  <div class="reader-note-body">
-    {{ include.note | markdownify }}
-  </div>
-</details>
+{% assign rendered_note = include.note | markdownify | remove: '<p>' | remove: '</p>' %}
+<button class="reader-note-trigger reader-note-trigger--{{ include.type | default: 'note' }}" type="button" aria-expanded="false">{{ include.text }}</button><span class="reader-note-body reader-note-body--{{ include.type | default: 'note' }}" hidden>{{ rendered_note }}</span>
