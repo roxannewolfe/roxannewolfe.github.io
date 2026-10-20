@@ -344,8 +344,130 @@ mark.annotation-highlight {
   top: 1rem;
 }
 
+.blog-stream {
+  min-width: 0;
+}
+
+.blog-entry {
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.6rem;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.blog-entry:not([open]):hover {
+  transform: translateY(-2px) scale(1.008);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0.45rem 1.2rem rgba(0, 0, 0, 0.18);
+}
+
 .blog-entry--publication-note {
-  border-width: 3px;
+  border-left: 0.42rem solid rgba(167, 125, 232, 0.9);
+}
+
+.blog-entry-summary {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  min-height: 9rem;
+  padding: 1.25rem 3.2rem 1.25rem 1.35rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.blog-entry--publication-note .blog-entry-summary {
+  min-height: 11rem;
+  padding-top: 1.45rem;
+  padding-bottom: 1.45rem;
+}
+
+.blog-entry-summary::-webkit-details-marker {
+  display: none;
+}
+
+.blog-entry-summary::marker {
+  content: "";
+}
+
+.blog-entry-summary::after {
+  content: "+";
+  position: absolute;
+  top: 1.15rem;
+  right: 1.25rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.blog-entry[open] > .blog-entry-summary::after {
+  content: "–";
+}
+
+.blog-entry-summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -3px;
+}
+
+.blog-entry-summary-inner > :first-child {
+  margin-top: 0;
+}
+
+.blog-entry-summary-inner > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-entry-date,
+.blog-entry-kind {
+  font-size: 0.9rem;
+}
+
+.blog-entry-kind {
+  margin: 0.35rem 0 0.75rem;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.blog-entry-summary h2 {
+  margin: 0.45rem 0 0.65rem;
+}
+
+.blog-entry-preview {
+  margin: 0.75rem 0 0;
+  max-width: 52rem;
+  line-height: 1.5;
+}
+
+blockquote.blog-entry-preview {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.35);
+  font-size: 1.05rem;
+}
+
+.blog-entry-expanded {
+  padding: 1.3rem 1.4rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.blog-entry-expanded > :first-child {
+  margin-top: 0;
+}
+
+.blog-entry-expanded > :last-child {
+  margin-bottom: 0;
+}
+
+.blog-entry-expanded img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.25rem 0;
+}
+
+.blog-entry-read-link {
+  margin-top: 1.5rem;
+  font-weight: 700;
 }
 
 .about-author {
@@ -387,6 +509,12 @@ button[aria-pressed="true"] {
 
   .blog-dates {
     position: static;
+    margin-bottom: 2rem;
+  }
+
+  .blog-entry-summary,
+  .blog-entry--publication-note .blog-entry-summary {
+    min-height: 0;
   }
 
   .publication-title {
