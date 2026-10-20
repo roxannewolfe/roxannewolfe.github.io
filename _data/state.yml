@@ -11,11 +11,12 @@ links:
 
 blog:
   description: >
-    An ongoing stream of life, reading, films, work, and discussion around the publications.
+    An ongoing stream of my life, where I have discussions on my recent work,
+    stories from my life, and the occasional mention of studying amongst all the procrastination.
   status:
     line_one:
       accent: "Genuinely"
-      text: "Tired"
+      text: "tired"
     line_two:
       accent: "Pretending"
-      text: "it's fine"
+      text: "its fine"
