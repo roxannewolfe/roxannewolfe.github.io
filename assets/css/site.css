@@ -155,71 +155,119 @@ main {
   line-height: 1.45;
 }
 
-.publication-body {
+.publication-body,
+.publication-footer {
+  box-sizing: border-box;
   width: 100%;
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.publication-body {
   font-size: 1.06rem;
+}
+
+.publication-body > :first-child {
+  margin-top: 0;
 }
 
 .publication-body h2,
 .publication-body h3 {
   margin-top: 2.5rem;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .publication-body p {
   margin: 1.15rem 0;
+  padding: 0;
 }
 
 .publication-footer {
-  width: 100%;
-  margin: 3rem 0 0;
+  margin-top: 3rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.reader-note-trigger {
+.annotation {
+  position: relative;
+  display: inline;
+}
+
+.annotation-trigger {
   appearance: none;
   -webkit-appearance: none;
+  display: inline;
   margin: 0;
-  padding: 0 0.16em;
+  padding: 0;
   border: 0;
-  border-radius: 0.22rem;
+  background: none;
   color: inherit;
   font: inherit;
   line-height: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  vertical-align: baseline;
   cursor: pointer;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 0.14em;
-  background: rgba(239, 155, 73, 0.34);
 }
 
-.reader-note-trigger--citation {
-  background: rgba(167, 125, 232, 0.34);
+.annotation-highlight {
+  margin: 0;
+  padding: 0 0.08em;
+  border-radius: 0.12em;
+  background: rgba(239, 155, 73, 0.36);
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-decoration: none;
 }
 
-.reader-note-trigger:hover,
-.reader-note-trigger:focus-visible {
-  outline: 2px solid currentColor;
+.annotation--citation .annotation-highlight {
+  background: rgba(167, 125, 232, 0.4);
+}
+
+.annotation-trigger:hover .annotation-highlight,
+.annotation-trigger:focus-visible .annotation-highlight {
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
-.reader-note-body {
+.annotation-bubble {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 0.75rem);
+  transform: translateX(-50%);
   box-sizing: border-box;
-  display: block;
-  width: 100%;
-  margin: 0.75rem 0 1rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid rgba(239, 155, 73, 0.8);
-  border-left-width: 4px;
+  width: max-content;
+  max-width: min(28rem, calc(100vw - 2rem));
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(239, 155, 73, 0.9);
   border-radius: 0.5rem;
-  background: rgba(239, 155, 73, 0.12);
-  font-size: 0.96em;
+  background: #242424;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.28);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
 }
 
-.reader-note-body--citation {
-  border-color: rgba(167, 125, 232, 0.82);
-  background: rgba(167, 125, 232, 0.12);
+.annotation--citation .annotation-bubble {
+  border-color: rgba(167, 125, 232, 0.95);
+}
+
+.annotation-bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 0.45rem solid transparent;
+  border-top-color: rgba(239, 155, 73, 0.9);
+}
+
+.annotation--citation .annotation-bubble::after {
+  border-top-color: rgba(167, 125, 232, 0.95);
 }
 
 .publication-figure {
@@ -303,5 +351,9 @@ button[aria-pressed="true"] {
 
   .author-note {
     padding: 1rem;
+  }
+
+  .annotation-bubble {
+    width: min(20rem, calc(100vw - 2rem));
   }
 }
