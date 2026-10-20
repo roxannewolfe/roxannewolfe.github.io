@@ -15,7 +15,11 @@
 
 .blog-intro-copy {
   align-self: center;
-  padding-top: 0.2rem;
+  justify-self: center;
+  width: min(100%, 34rem);
+  padding-top: 1.4rem;
+  text-align: center;
+  transform: translateX(1.6rem);
 }
 
 .blog-intro-copy h1 {
@@ -30,9 +34,10 @@
 }
 
 .blog-intro-copy p {
-  max-width: 36rem;
-  margin: 0.55rem 0 0;
+  max-width: 31rem;
+  margin: 0.55rem auto 0;
   line-height: 1.5;
+  text-align: center;
 }
 
 .blog-status {
@@ -234,6 +239,12 @@
     display: block;
     margin-bottom: 0.45rem;
     padding: 0.2rem 0 0.9rem;
+  }
+
+  .blog-intro-copy {
+    width: 100%;
+    padding-top: 0.7rem;
+    transform: none;
   }
 
   .blog-intro-copy p {
