@@ -24,11 +24,17 @@ layout: default
     <aside class="author-note" aria-label="Author's note">
       <p class="author-note-label">Author's note</p>
       <blockquote>“{{ page.author_note }}”</blockquote>
+      {% if page.type == "essay" %}
+        <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">View this essay's companion blog note</a></p>
+      {% endif %}
     </aside>
   {% elsif page.summary %}
     <aside class="author-note" aria-label="Author's note">
       <p class="author-note-label">Author's note</p>
       <blockquote>“{{ page.summary }}”</blockquote>
+      {% if page.type == "essay" %}
+        <p class="companion-note-link"><a href="{{ '/blog/' | relative_url }}#blog-publication-{{ page.slug }}">View this essay's companion blog note</a></p>
+      {% endif %}
     </aside>
   {% endif %}
 
