@@ -1,0 +1,6 @@
+<details class="reader-note reader-note--{{ include.type | default: 'note' }}">
+  <summary class="reader-note-trigger">{{ include.text }}</summary>
+  <div class="reader-note-body">
+    {{ include.note | markdownify }}
+  </div>
+</details>
