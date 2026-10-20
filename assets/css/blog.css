@@ -1,21 +1,51 @@
 .blog-page {
-  row-gap: 1.25rem;
+  row-gap: 2rem;
 }
 
 .blog-intro {
   grid-column: 1 / -1;
-  margin: 0 0 0.35rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+  gap: 3rem;
+  align-items: end;
+  margin: 0 0 0.9rem;
+  padding: 1.4rem 0 1.6rem;
 }
 
-.blog-intro h1 {
+.blog-intro-copy h1 {
   margin: 0;
   font-size: 1.7rem;
   line-height: 1.15;
 }
 
-.blog-intro p {
-  max-width: 46rem;
-  margin: 0.35rem 0 0;
+.blog-intro-copy p {
+  max-width: 38rem;
+  margin: 0.45rem 0 0;
+}
+
+.blog-status {
+  align-self: end;
+  padding-bottom: 0.05rem;
+}
+
+.blog-status-line {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.blog-status-line + .blog-status-line {
+  margin-top: 0.32rem;
+}
+
+.blog-status-accent--orange {
+  color: rgb(213, 126, 58);
+}
+
+.blog-status-accent--purple {
+  color: rgb(132, 86, 184);
 }
 
 .findme h2 {
@@ -178,11 +208,21 @@
 
 @media (max-width: 700px) {
   .blog-page {
-    row-gap: 1rem;
+    row-gap: 1.25rem;
   }
 
   .blog-intro {
-    margin-bottom: 0.25rem;
+    display: block;
+    margin-bottom: 0.7rem;
+    padding: 0.8rem 0 1.1rem;
+  }
+
+  .blog-status {
+    margin-top: 1.3rem;
+  }
+
+  .blog-status-line {
+    font-size: 1.3rem;
   }
 
   .findme-types {
