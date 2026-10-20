@@ -14,7 +14,7 @@ layout: default
     {% if page.topics and page.topics.size > 0 %}
       <nav class="publication-topics" aria-label="Publication topics">
         {% for topic in page.topics %}
-          <a class="topic-chip topic-chip--{{ forloop.index0 | modulo: 4 }}" href="{{ '/archive/' | relative_url }}?topic={{ topic | url_encode }}">{{ topic }}</a>
+          <a class="topic-chip topic-chip--{{ forloop.index0 | modulo: 4 }}" href="{{ '/archive/' | relative_url }}?topic={{ topic | downcase | slugify }}">{{ topic }}</a>
         {% endfor %}
       </nav>
     {% endif %}
