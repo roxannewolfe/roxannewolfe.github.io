@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Blog
+extra_css: /assets/css/blog.css
 ---
 <section class="blog-page">
   <h1>Blog</h1>
@@ -9,31 +10,37 @@ title: Blog
   {% assign publication_notes = site.publications | where_exp: "item", "item.blog_note" %}
   {% assign blog_entries = site.blog | concat: publication_notes | sort: "date" | reverse %}
 
-  <aside class="blog-dates" aria-label="Blog dates">
-    <h2>Dates</h2>
-    {% assign current_year = "" %}
-    {% for entry in blog_entries %}
-      {% assign year = entry.date | date: "%Y" %}
-      {% if year != current_year %}
-        {% if current_year != "" %}</ul>{% endif %}
-        <h3>{{ year }}</h3>
-        <ul>
-        {% assign current_year = year %}
-      {% endif %}
-      {% if entry.blog_note %}
-        {% assign entry_anchor = entry.slug | prepend: "blog-publication-" %}
-      {% else %}
-        {% capture entry_anchor %}blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}{% endcapture %}
-      {% endif %}
-      <li><a href="#{{ entry_anchor }}">{{ entry.date | date: "%d %b" }}</a></li>
-    {% endfor %}
-    {% if blog_entries.size > 0 %}</ul>{% endif %}
+  <aside class="blog-dates findme" aria-label="Find blog entries">
+    <h2>FindMe</h2>
+
+    <div class="findme-types" aria-label="Filter blog entries by type">
+      <button type="button" class="findme-type findme-type--essay" data-blog-filter="essay" aria-pressed="false" aria-label="Show essays only" title="Essays"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--review" data-blog-filter="review" aria-pressed="false" aria-label="Show reviews only" title="Reviews"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--slice-of-life" data-blog-filter="slice-of-life" aria-pressed="false" aria-label="Show slice of life only" title="Slice of Life"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--blog" data-blog-filter="blog" aria-pressed="false" aria-label="Show standard blog notes only" title="Blog"><span aria-hidden="true"></span></button>
+    </div>
+
+    <div class="findme-dates" aria-label="Jump to month">
+      {% assign year_groups = blog_entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
+      {% for year_group in year_groups %}
+        <section class="findme-year">
+          <h3>{{ year_group.name }}</h3>
+          {% assign month_groups = year_group.items | group_by_exp: "entry", "entry.date | date: '%Y-%m'" %}
+          <div class="findme-months">
+            {% for month_group in month_groups %}
+              <button type="button" class="findme-month" data-month-jump="{{ month_group.name }}">{{ month_group.items.first.date | date: "%B" }}</button>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
   </aside>
 
   <div class="blog-stream">
     {% for entry in blog_entries %}
+      {% assign entry_month = entry.date | date: '%Y-%m' %}
       {% if entry.blog_note %}
-        <details class="blog-entry blog-entry--publication-note blog-entry--{{ entry.type | default: 'publication' }}" id="blog-publication-{{ entry.slug }}">
+        <details class="blog-entry blog-entry--publication-note blog-entry--{{ entry.type | default: 'publication' }}" id="blog-publication-{{ entry.slug }}" data-blog-type="{{ entry.type | default: 'publication' }}" data-blog-month="{{ entry_month }}">
           <summary class="blog-entry-summary">
             <span class="blog-entry-summary-inner">
               <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
@@ -53,12 +60,13 @@ title: Blog
           </div>
         </details>
       {% else %}
-        <details class="blog-entry blog-entry--{{ entry.kind | default: 'blog' }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}">
+        {% assign blog_kind = entry.kind | default: 'blog' %}
+        <details class="blog-entry blog-entry--{{ blog_kind }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}" data-blog-type="{{ blog_kind }}" data-blog-month="{{ entry_month }}">
           <summary class="blog-entry-summary">
             <span class="blog-entry-summary-inner">
               <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
               {% if entry.title %}<span class="blog-entry-title" role="heading" aria-level="2">{{ entry.title }}</span>{% endif %}
-              {% if entry.kind == 'slice-of-life' %}<span class="blog-entry-kind">SLICE OF LIFE</span>{% endif %}
+              {% if blog_kind == 'slice-of-life' %}<span class="blog-entry-kind">SLICE OF LIFE</span>{% endif %}
               {% if entry.preview %}<span class="blog-entry-preview">{{ entry.preview }}</span>{% endif %}
             </span>
           </summary>
