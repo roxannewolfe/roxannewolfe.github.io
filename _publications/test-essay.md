@@ -1,7 +1,7 @@
 ---
 title: "Test Essay"
 date: 2026-10-15
-type: essay
+type: discourse
 slug: test-essay
 topics:
   - philosophy
@@ -14,7 +14,7 @@ blog_note: >
   This is the more casual companion discussion. It can talk about what was happening
   around the essay, where the idea came from, what changed while writing it, or anything
   else that belongs in the ongoing blog rather than inside the finished publication itself.
-summary: "A dummy essay used to prove that the publication collection, archive, and filters work."
+summary: "A dummy discourse piece used to prove that the publication collection, archive, and filters work."
 ---
 
 This is a placeholder essay. It exists to test the finished reading structure rather than to say anything particularly profound.
