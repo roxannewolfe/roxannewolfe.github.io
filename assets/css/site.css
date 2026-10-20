@@ -156,8 +156,8 @@ main {
 }
 
 .publication-body {
-  width: min(100%, 48rem);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   font-size: 1.06rem;
 }
 
@@ -171,50 +171,55 @@ main {
 }
 
 .publication-footer {
-  width: min(100%, 48rem);
-  margin: 3rem auto 0;
+  width: 100%;
+  margin: 3rem 0 0;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.reader-note {
-  margin: 1.25rem 0;
-}
-
 .reader-note-trigger {
-  display: inline-block;
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
-  background: rgba(166, 207, 255, 0.25);
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0 0.16em;
+  border: 0;
+  border-radius: 0.22rem;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
   cursor: pointer;
   text-decoration: underline;
   text-decoration-style: dotted;
+  text-underline-offset: 0.14em;
+  background: rgba(239, 155, 73, 0.34);
 }
 
-.reader-note--aside .reader-note-trigger {
-  background: rgba(255, 184, 214, 0.25);
+.reader-note-trigger--citation {
+  background: rgba(167, 125, 232, 0.34);
 }
 
-.reader-note--citation .reader-note-trigger {
-  background: rgba(198, 235, 190, 0.25);
-}
-
-.reader-note--related .reader-note-trigger {
-  background: rgba(241, 213, 153, 0.25);
+.reader-note-trigger:hover,
+.reader-note-trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 .reader-note-body {
-  margin-top: 0.65rem;
-  padding: 0.8rem 1rem;
-  border-left: 3px solid currentColor;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0.75rem 0 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(239, 155, 73, 0.8);
+  border-left-width: 4px;
+  border-radius: 0.5rem;
+  background: rgba(239, 155, 73, 0.12);
+  font-size: 0.96em;
 }
 
-.reader-note-body > :first-child {
-  margin-top: 0;
-}
-
-.reader-note-body > :last-child {
-  margin-bottom: 0;
+.reader-note-body--citation {
+  border-color: rgba(167, 125, 232, 0.82);
+  background: rgba(167, 125, 232, 0.12);
 }
 
 .publication-figure {
@@ -237,13 +242,6 @@ main {
   width: min(70rem, calc(100vw - 2rem));
   margin-left: 50%;
   transform: translateX(-50%);
-}
-
-.footnotes {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 0.92rem;
 }
 
 .blog-page {
