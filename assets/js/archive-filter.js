@@ -9,6 +9,34 @@
   const typeButtons = [...document.querySelectorAll('[data-filter-type]')];
   const topicButtons = [...document.querySelectorAll('[data-filter-topic]')];
   const status = document.querySelector('#archive-filter-status');
+  const titlePrefix = document.querySelector('#archive-title-prefix');
+  const description = document.querySelector('#archive-description');
+
+  function updateMasthead() {
+    if (!titlePrefix || !description) return;
+
+    titlePrefix.hidden = true;
+    titlePrefix.textContent = '';
+    titlePrefix.className = 'archive-title-prefix';
+
+    if (activeType === 'discourse') {
+      titlePrefix.hidden = false;
+      titlePrefix.textContent = 'Discourse';
+      titlePrefix.classList.add('archive-title-prefix--discourse');
+      description.textContent = description.dataset.descriptionDiscourse;
+      return;
+    }
+
+    if (activeType === 'cultural') {
+      titlePrefix.hidden = false;
+      titlePrefix.textContent = 'Cultural';
+      titlePrefix.classList.add('archive-title-prefix--cultural');
+      description.textContent = description.dataset.descriptionCultural;
+      return;
+    }
+
+    description.textContent = description.dataset.descriptionAll;
+  }
 
   function applyFilters() {
     let visible = 0;
@@ -31,6 +59,8 @@
     topicButtons.forEach((button) => {
       button.setAttribute('aria-pressed', String(button.dataset.filterTopic === activeTopic));
     });
+
+    updateMasthead();
 
     if (status) status.textContent = `${visible} publication${visible === 1 ? '' : 's'} shown.`;
 
