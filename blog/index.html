@@ -4,8 +4,10 @@ title: Blog
 extra_css: /assets/css/blog.css
 ---
 <section class="blog-page">
-  <h1>Blog</h1>
-  <p>An ongoing stream of life, reading, films, work, and discussion around the publications.</p>
+  <header class="blog-intro">
+    <h1>Blog</h1>
+    <p>An ongoing stream of life, reading, films, work, and discussion around the publications.</p>
+  </header>
 
   {% assign publication_notes = site.publications | where_exp: "item", "item.blog_note" %}
   {% assign blog_entries = site.blog | concat: publication_notes | sort: "date" | reverse %}
