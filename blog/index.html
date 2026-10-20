@@ -14,8 +14,8 @@ extra_css: /assets/css/blog.css
     <h2>FindMe</h2>
 
     <div class="findme-types" aria-label="Filter blog entries by type">
-      <button type="button" class="findme-type findme-type--essay" data-blog-filter="essay" aria-pressed="false" aria-label="Show essays only" title="Essays"><span aria-hidden="true"></span></button>
-      <button type="button" class="findme-type findme-type--review" data-blog-filter="review" aria-pressed="false" aria-label="Show reviews only" title="Reviews"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--discourse" data-blog-filter="discourse" aria-pressed="false" aria-label="Show discourse only" title="Discourse"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--cultural" data-blog-filter="cultural" aria-pressed="false" aria-label="Show cultural commentary only" title="Cultural"><span aria-hidden="true"></span></button>
       <button type="button" class="findme-type findme-type--slice-of-life" data-blog-filter="slice-of-life" aria-pressed="false" aria-label="Show slice of life only" title="Slice of Life"><span aria-hidden="true"></span></button>
       <button type="button" class="findme-type findme-type--blog" data-blog-filter="blog" aria-pressed="false" aria-label="Show standard blog notes only" title="Blog"><span aria-hidden="true"></span></button>
     </div>
@@ -45,7 +45,13 @@ extra_css: /assets/css/blog.css
             <span class="blog-entry-summary-inner">
               <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
               <span class="blog-entry-title" role="heading" aria-level="2">About {{ entry.title }}</span>
-              <span class="blog-entry-kind">AUTHOR'S NOTE</span>
+              {% if entry.type == 'discourse' %}
+                <span class="blog-entry-kind">DISCOURSE</span>
+              {% elsif entry.type == 'cultural' %}
+                <span class="blog-entry-kind">CULTURAL</span>
+              {% else %}
+                <span class="blog-entry-kind">PUBLICATION</span>
+              {% endif %}
               {% if entry.author_note %}
                 <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.author_note }}”</span>
               {% elsif entry.summary %}
