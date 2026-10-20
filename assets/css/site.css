@@ -55,8 +55,8 @@ main {
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 999px;
-  background: #9fd9b4;
-  box-shadow: 0 0 0 2px rgba(159, 217, 180, 0.16);
+  background: rgb(92, 150, 76);
+  box-shadow: 0 0 0 2px rgba(92, 150, 76, 0.18);
 }
 
 .site-nav,
