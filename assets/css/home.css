@@ -59,13 +59,14 @@
 }
 
 .home-links {
-  grid-column: 3 / 8;
+  grid-column: 1 / 6;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.7rem;
   width: min(100%, 33rem);
-  margin: 0.85rem auto 0;
+  margin: 0.85rem 0 0;
   align-self: start;
+  justify-self: start;
 }
 
 .home-link-bar {
@@ -248,6 +249,8 @@
 
   .home-links {
     width: min(100%, 34rem);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .state-of-affairs {
