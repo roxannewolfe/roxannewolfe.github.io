@@ -48,7 +48,7 @@
   max-width: 28rem;
   padding: 1rem 1.2rem;
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: 0;
 }
 
 .blog-status-line {
