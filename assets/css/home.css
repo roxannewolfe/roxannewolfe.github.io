@@ -59,11 +59,12 @@
 }
 
 .home-links {
-  grid-column: 1 / 8;
+  grid-column: 3 / 8;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.72rem;
-  margin: 0.7rem 0 0;
+  gap: 0.7rem;
+  width: min(100%, 33rem);
+  margin: 0.85rem auto 0;
   align-self: start;
 }
 
@@ -71,37 +72,65 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  min-height: 4.8rem;
-  padding: 0.9rem 1.15rem;
-  border: 1px solid currentColor;
-  background: var(--background, transparent);
+  min-height: 4.35rem;
+  padding: 0.8rem 1.1rem;
+  border: 2px solid currentColor;
+  text-align: center;
   text-decoration: none;
   transition: transform 130ms ease, background 130ms ease, border-color 130ms ease;
 }
 
 .home-link-label {
-  font-size: clamp(1.2rem, 2.1vw, 1.55rem);
+  font-size: clamp(1.2rem, 2.1vw, 1.5rem);
   font-weight: 700;
   line-height: 1.1;
 }
 
 .home-link-bar--discourse {
   border-color: rgb(132, 86, 184);
+  background: rgba(132, 86, 184, 0.12);
 }
 
 .home-link-bar--cultural {
   border-color: rgb(213, 126, 58);
+  background: rgba(213, 126, 58, 0.12);
 }
 
 .home-link-bar--blog {
   border-color: rgb(92, 150, 76);
+  background: rgba(92, 150, 76, 0.12);
+}
+
+.home-link-bar--about {
+  border-color: rgba(180, 180, 180, 0.9);
+  background: rgba(135, 135, 135, 0.1);
+}
+
+.home-link-bar--discourse:hover,
+.home-link-bar--discourse:focus-visible {
+  background: rgba(132, 86, 184, 0.2);
+}
+
+.home-link-bar--cultural:hover,
+.home-link-bar--cultural:focus-visible {
+  background: rgba(213, 126, 58, 0.2);
+}
+
+.home-link-bar--blog:hover,
+.home-link-bar--blog:focus-visible {
+  background: rgba(92, 150, 76, 0.2);
+}
+
+.home-link-bar--about:hover,
+.home-link-bar--about:focus-visible {
+  background: rgba(135, 135, 135, 0.18);
 }
 
 .home-link-bar:hover,
 .home-link-bar:focus-visible {
-  transform: translateX(0.35rem);
+  transform: translateX(0.28rem);
 }
 
 .state-of-affairs {
@@ -217,6 +246,10 @@
     grid-column: 1 / -1;
   }
 
+  .home-links {
+    width: min(100%, 34rem);
+  }
+
   .state-of-affairs {
     margin-top: 1rem;
     transform: none;
@@ -255,11 +288,12 @@
   }
 
   .home-links {
+    width: 100%;
     margin-top: 1.5rem;
   }
 
   .home-link-bar {
-    min-height: 4.2rem;
+    min-height: 4.1rem;
   }
 
   .home-link-bar:hover,
