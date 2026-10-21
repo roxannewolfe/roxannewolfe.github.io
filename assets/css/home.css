@@ -6,7 +6,7 @@
 }
 
 .home-hero {
-  grid-column: 2 / 12;
+  grid-column: 1 / -1;
   text-align: center;
   padding: 1.4rem 0 0.8rem;
 }
@@ -21,18 +21,19 @@
 
 .home-title {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  align-items: baseline;
-  gap: 0.28em;
+  align-items: center;
+  gap: 0.08em;
   margin: 0;
   line-height: 0.88;
+  white-space: nowrap;
 }
 
 .home-title-genuine {
   color: rgb(213, 126, 58);
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
-  font-size: clamp(3.6rem, 10vw, 7.5rem);
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
   font-weight: 900;
   letter-spacing: -0.07em;
   text-transform: uppercase;
@@ -42,11 +43,11 @@
   display: inline-block;
   color: rgb(132, 86, 184);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(4rem, 10.8vw, 8rem);
+  font-size: clamp(3.9rem, 8.6vw, 7rem);
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.075em;
-  transform: rotate(-2deg) skewX(-7deg) translateY(0.04em);
+  transform: rotate(-4deg) skewX(-7deg) translate(-0.03em, 0.04em);
   transform-origin: center;
 }
 
@@ -203,6 +204,14 @@
     grid-column: 1 / -1;
   }
 
+  .home-title-genuine {
+    font-size: clamp(3rem, 8vw, 5.2rem);
+  }
+
+  .home-title-pretending {
+    font-size: clamp(3.4rem, 8.7vw, 5.8rem);
+  }
+
   .home-links,
   .state-of-affairs,
   .home-latest {
@@ -233,6 +242,7 @@
 
   .home-title {
     display: block;
+    white-space: normal;
   }
 
   .home-title-genuine,
