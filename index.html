@@ -14,12 +14,18 @@ extra_css: /assets/css/home.css
   </header>
 
   <nav class="home-links" aria-label="Journal sections">
-    <a href="{{ '/archive/' | relative_url }}">Everything</a>
-    <a href="{{ '/archive/?type=discourse' | relative_url }}">Discourse</a>
-    <a href="{{ '/archive/?type=cultural' | relative_url }}">Cultural</a>
-    <a href="{{ '/blog/' | relative_url }}">Blog</a>
-    <a href="{{ '/about/' | relative_url }}">About this journal</a>
-    <a href="{{ '/events/' | relative_url }}">Events</a>
+    <a class="home-link-bar home-link-bar--discourse" href="{{ '/archive/?type=discourse' | relative_url }}">
+      <span class="home-link-label">Discourse</span>
+    </a>
+    <a class="home-link-bar home-link-bar--cultural" href="{{ '/archive/?type=cultural' | relative_url }}">
+      <span class="home-link-label">Cultural</span>
+    </a>
+    <a class="home-link-bar home-link-bar--blog" href="{{ '/blog/' | relative_url }}">
+      <span class="home-link-label">Blog</span>
+    </a>
+    <a class="home-link-bar home-link-bar--about" href="{{ '/about/' | relative_url }}">
+      <span class="home-link-label">About this journal</span>
+    </a>
   </nav>
 
   <section class="state-of-affairs">
