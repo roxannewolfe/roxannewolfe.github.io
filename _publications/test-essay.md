@@ -4,9 +4,9 @@ date: 2026-10-15
 type: discourse
 slug: test-essay
 topics:
+  - essay
   - philosophy
-  - temporality
-  - academic life
+  - epistemology
 author_note: >
   This is the author's note: a concise introduction to the essay, why I wrote it,
   and what I hope the piece is doing without pretending to be a formal academic abstract.
