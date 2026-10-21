@@ -1,12 +1,16 @@
 ---
 layout: default
 title: Home
+extra_css: /assets/css/home.css
 ---
 <section class="home-console">
-  <header>
-    <p>Independent journal / Roxanne Maclaurin Wolfe</p>
-    <h1>{{ site.title }}</h1>
-    <p>{{ site.description }}</p>
+  <header class="home-hero">
+    <p class="home-eyebrow">Independent journal / Roxanne Maclaurin Wolfe</p>
+    <h1 class="home-title" aria-label="Genuine Pretending">
+      <span class="home-title-genuine">Genuine</span>
+      <span class="home-title-pretending">Pretending</span>
+    </h1>
+    <p class="home-description">{{ site.description }}</p>
   </header>
 
   <nav class="home-links" aria-label="Journal sections">
@@ -19,11 +23,12 @@ title: Home
   </nav>
 
   <section class="state-of-affairs">
-    <p><time datetime="{{ site.data.state.date }}">{{ site.data.state.date | date: "%d %B %Y" }}</time></p>
+    <p class="state-of-affairs-kicker">Pinned editorial</p>
+    <p class="state-of-affairs-date"><time datetime="{{ site.data.state.date }}">{{ site.data.state.date | date: "%d %B %Y" }}</time></p>
     <h2>{{ site.data.state.title }}</h2>
     <p>{{ site.data.state.body }}</p>
     {% if site.data.state.links %}
-      <p>
+      <p class="state-of-affairs-links">
         {% for link in site.data.state.links %}
           <a href="{{ link.url | relative_url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
         {% endfor %}
@@ -32,7 +37,10 @@ title: Home
   </section>
 
   <section class="home-latest">
-    <h2>Latest publications</h2>
+    <div class="home-latest-heading">
+      <p>Current writing</p>
+      <h2>Latest publications</h2>
+    </div>
     {% assign latest = site.publications | sort: "date" | reverse %}
     {% for item in latest limit:3 %}
       {% include publication-card.html item=item %}
