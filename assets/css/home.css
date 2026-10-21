@@ -59,11 +59,11 @@
 }
 
 .home-links {
-  grid-column: 4 / 9;
+  grid-column: 5 / 9;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0.65rem;
-  width: min(100%, 26rem);
+  width: min(100%, 22rem);
   margin: 0.95rem auto 0;
   align-self: start;
   justify-self: center;
@@ -251,7 +251,7 @@
   }
 
   .home-links {
-    width: min(100%, 26rem);
+    width: min(100%, 22rem);
     margin-left: auto;
     margin-right: auto;
   }
