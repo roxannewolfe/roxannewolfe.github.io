@@ -1,0 +1,22 @@
+date: 2026-10-15
+title: State of Affairs
+body: >
+  This is the journal's changing front-page note. It can talk about recent writing,
+  current projects, films, events, or whatever is happening around the work.
+links:
+  - label: Browse the archive
+    url: /archive/
+  - label: Read the blog
+    url: /blog/
+
+blog:
+  description: >
+    An ongoing stream of my life, where I have discussions on my recent work,
+    stories from my life, and the occasional mention of studying amongst all the procrastination.
+  status:
+    line_one:
+      accent: "Genuinely"
+      text: "tired"
+    line_two:
+      accent: "Pretending"
+      text: "its fine"

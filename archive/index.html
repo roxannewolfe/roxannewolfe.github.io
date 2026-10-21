@@ -1,0 +1,55 @@
+---
+layout: default
+title: Archive
+extra_css: /assets/css/archive.css
+---
+<section class="archive-page">
+  <header class="archive-intro">
+    <h1 id="archive-title">
+      <span id="archive-title-prefix" class="archive-title-prefix" hidden></span>
+      <span>Archive</span>
+    </h1>
+    <p id="archive-description"
+       data-description-all="All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into."
+       data-description-discourse="Discourse gathers longer-form arguments, philosophical explorations, academic work, and other pieces built around sustained ideas and discussion."
+       data-description-cultural="Cultural gathers reviews, media criticism, responses to news, and other commentary on the cultural world around the journal.">
+      All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into.
+    </p>
+  </header>
+
+  <div class="archive-filter-bar" aria-label="Archive filters">
+    <section class="archive-filter-group archive-filter-group--type" aria-labelledby="archive-type-label">
+      <h2 id="archive-type-label">Type</h2>
+      <div class="archive-filters">
+        <button type="button" class="archive-filter archive-filter--all" data-filter-type="all">All</button>
+        <button type="button" class="archive-filter archive-filter--discourse" data-filter-type="discourse">Discourse</button>
+        <button type="button" class="archive-filter archive-filter--cultural" data-filter-type="cultural">Cultural</button>
+        <button type="button" class="archive-filter archive-filter--other" data-filter-type="other">Other</button>
+      </div>
+    </section>
+
+    <section class="archive-filter-group archive-filter-group--keyword" aria-labelledby="archive-keyword-label">
+      <h2 id="archive-keyword-label">Keyword</h2>
+      <div id="topic-filters" class="topic-filters" aria-label="Keyword filters">
+        {% assign all_topics = site.publications | map: "topics" | compact | join: "," | split: "," | uniq | sort %}
+        {% for topic in all_topics %}
+          {% assign clean_topic = topic | strip %}
+          {% if clean_topic != "" %}
+            <button type="button" class="archive-filter archive-filter--keyword" data-filter-topic="{{ clean_topic | downcase | slugify }}">{{ clean_topic }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <p id="archive-filter-status" aria-live="polite"></p>
+
+  <div id="publication-archive">
+    {% assign publications = site.publications | sort: "date" | reverse %}
+    {% for item in publications %}
+      {% include publication-card.html item=item %}
+    {% endfor %}
+  </div>
+</section>
+
+<script src="{{ '/assets/js/archive-filter.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

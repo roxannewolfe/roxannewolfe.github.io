@@ -1,0 +1,6 @@
+<span class="annotation annotation--{{ include.type | default: 'note' }}">
+  <button type="button" class="annotation-trigger" aria-expanded="false">
+    <mark class="annotation-highlight">{{ include.text }}</mark>
+  </button>
+  <span class="annotation-bubble" role="note" hidden>{{ include.note | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+</span>
