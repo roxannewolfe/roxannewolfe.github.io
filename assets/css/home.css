@@ -59,14 +59,14 @@
 }
 
 .home-links {
-  grid-column: 1 / 6;
+  grid-column: 4 / 9;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.7rem;
-  width: min(100%, 33rem);
-  margin: 0.85rem 0 0;
+  gap: 0.65rem;
+  width: min(100%, 26rem);
+  margin: 0.95rem auto 0;
   align-self: start;
-  justify-self: start;
+  justify-self: center;
 }
 
 .home-link-bar {
@@ -75,8 +75,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 4.35rem;
-  padding: 0.8rem 1.1rem;
+  min-height: 3.75rem;
+  padding: 0.65rem 1rem;
   border: 2px solid currentColor;
   text-align: center;
   text-decoration: none;
@@ -84,7 +84,7 @@
 }
 
 .home-link-label {
-  font-size: clamp(1.2rem, 2.1vw, 1.5rem);
+  font-size: clamp(1.15rem, 1.9vw, 1.4rem);
   font-weight: 700;
   line-height: 1.1;
 }
@@ -135,12 +135,15 @@
 }
 
 .state-of-affairs {
-  grid-column: 8 / 13;
+  grid-column: 9 / 13;
   position: relative;
-  margin: 1.4rem 0 0;
-  padding: 1.3rem 1.35rem 1.45rem;
+  box-sizing: border-box;
+  width: min(100%, 24rem);
+  justify-self: end;
+  margin: 1.2rem 0 0;
+  padding: 1.15rem 1.15rem 1.25rem;
   border: 1px solid currentColor;
-  border-left: 0.5rem solid rgb(191, 67, 56);
+  border-left: 0.45rem solid rgb(191, 67, 56);
   transform: rotate(0.8deg);
 }
 
@@ -176,7 +179,7 @@
 
 .state-of-affairs h2 {
   margin: 0.7rem 0 0.5rem;
-  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
   line-height: 1.05;
 }
 
@@ -248,12 +251,14 @@
   }
 
   .home-links {
-    width: min(100%, 34rem);
+    width: min(100%, 26rem);
     margin-left: auto;
     margin-right: auto;
   }
 
   .state-of-affairs {
+    width: min(100%, 28rem);
+    justify-self: center;
     margin-top: 1rem;
     transform: none;
   }
@@ -296,12 +301,16 @@
   }
 
   .home-link-bar {
-    min-height: 4.1rem;
+    min-height: 3.8rem;
   }
 
   .home-link-bar:hover,
   .home-link-bar:focus-visible {
     transform: none;
+  }
+
+  .state-of-affairs {
+    width: 100%;
   }
 
   .home-latest {
