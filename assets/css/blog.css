@@ -167,6 +167,10 @@
   text-decoration-thickness: 2px;
 }
 
+.blog-entry {
+  border-radius: 0;
+}
+
 .blog-entry--discourse {
   border-left: 0.5rem solid rgb(132, 86, 184);
 }
