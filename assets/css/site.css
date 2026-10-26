@@ -24,6 +24,13 @@ main {
   margin: 0 auto;
 }
 
+.site-header-shell {
+  box-sizing: border-box;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  background: var(--surface);
+}
+
 .site-header {
   box-sizing: border-box;
   display: flex;
@@ -31,7 +38,6 @@ main {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .site-footer {
