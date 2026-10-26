@@ -14,12 +14,14 @@
   <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}?v={{ asset_version }}">
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-branding">
-      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <span class="css-status" aria-hidden="true"></span>
+  <header class="site-header-shell">
+    <div class="site-header">
+      <div class="site-branding">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <span class="css-status" aria-hidden="true"></span>
+      </div>
+      {% include navigation.html %}
     </div>
-    {% include navigation.html %}
   </header>
 
   <main id="main-content">
