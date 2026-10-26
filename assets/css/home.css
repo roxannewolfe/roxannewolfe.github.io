@@ -1,0 +1,327 @@
+.home-console {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.home-hero {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1.4rem 0 0.8rem;
+}
+
+.home-eyebrow {
+  margin: 0 0 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  opacity: 0.72;
+}
+
+.home-title {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.08em;
+  margin: 0;
+  line-height: 0.88;
+  white-space: nowrap;
+}
+
+.home-title-genuine {
+  color: rgb(213, 126, 58);
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.home-title-pretending {
+  display: inline-block;
+  color: rgb(132, 86, 184);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.9rem, 8.6vw, 7rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  transform: rotate(-4deg) skewX(-7deg) translate(-0.03em, 0.04em);
+  transform-origin: center;
+}
+
+.home-description {
+  max-width: 42rem;
+  margin: 1.25rem auto 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.home-links {
+  grid-column: 5 / 9;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.65rem;
+  width: min(100%, 22rem);
+  margin: 0.95rem auto 0;
+  align-self: start;
+  justify-self: center;
+}
+
+.home-link-bar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.75rem;
+  padding: 0.65rem 1rem;
+  border: 2px solid currentColor;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 130ms ease, background 130ms ease, border-color 130ms ease;
+}
+
+.home-link-label {
+  font-size: clamp(1.15rem, 1.9vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.home-link-bar--discourse {
+  border-color: rgb(132, 86, 184);
+  background: rgba(132, 86, 184, 0.12);
+}
+
+.home-link-bar--cultural {
+  border-color: rgb(213, 126, 58);
+  background: rgba(213, 126, 58, 0.12);
+}
+
+.home-link-bar--blog {
+  border-color: rgb(92, 150, 76);
+  background: rgba(92, 150, 76, 0.12);
+}
+
+.home-link-bar--about {
+  border-color: rgba(180, 180, 180, 0.9);
+  background: rgba(135, 135, 135, 0.1);
+}
+
+.home-link-bar--discourse:hover,
+.home-link-bar--discourse:focus-visible {
+  background: rgba(132, 86, 184, 0.2);
+}
+
+.home-link-bar--cultural:hover,
+.home-link-bar--cultural:focus-visible {
+  background: rgba(213, 126, 58, 0.2);
+}
+
+.home-link-bar--blog:hover,
+.home-link-bar--blog:focus-visible {
+  background: rgba(92, 150, 76, 0.2);
+}
+
+.home-link-bar--about:hover,
+.home-link-bar--about:focus-visible {
+  background: rgba(135, 135, 135, 0.18);
+}
+
+.home-link-bar:hover,
+.home-link-bar:focus-visible {
+  transform: translateX(0.28rem);
+}
+
+.state-of-affairs {
+  grid-column: 9 / 13;
+  position: relative;
+  box-sizing: border-box;
+  width: min(100%, 24rem);
+  justify-self: end;
+  margin: 1.2rem 0 0;
+  padding: 1.15rem 1.15rem 1.25rem;
+  border: 1px solid currentColor;
+  border-left: 0.45rem solid rgb(191, 67, 56);
+  transform: rotate(0.8deg);
+}
+
+.state-of-affairs::before {
+  content: "";
+  position: absolute;
+  width: 0.68rem;
+  height: 0.68rem;
+  top: 0.72rem;
+  right: 0.8rem;
+  border-radius: 999px;
+  background: rgb(191, 67, 56);
+  box-shadow: 0 0 0 2px rgba(191, 67, 56, 0.18);
+}
+
+.state-of-affairs-kicker,
+.state-of-affairs-date {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.72rem;
+}
+
+.state-of-affairs-kicker {
+  color: rgb(191, 67, 56);
+  font-weight: 700;
+}
+
+.state-of-affairs-date {
+  margin-top: 0.35rem;
+  opacity: 0.7;
+}
+
+.state-of-affairs h2 {
+  margin: 0.7rem 0 0.5rem;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.05;
+}
+
+.state-of-affairs p {
+  max-width: 36rem;
+}
+
+.state-of-affairs-links {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.home-latest {
+  grid-column: 2 / 12;
+  margin-top: 2.2rem;
+}
+
+.home-latest-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  transform: translateX(-1.2rem);
+}
+
+.home-latest-heading p {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  opacity: 0.68;
+}
+
+.home-latest-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.home-latest .publication-card:nth-of-type(2) {
+  transform: translateX(1.6rem);
+}
+
+.home-latest .publication-card:nth-of-type(3) {
+  transform: translateX(-0.8rem);
+}
+
+.home-latest .publication-card:nth-of-type(4) {
+  transform: translateX(2.6rem);
+}
+
+@media (max-width: 850px) {
+  .home-hero {
+    grid-column: 1 / -1;
+  }
+
+  .home-title-genuine {
+    font-size: clamp(3rem, 8vw, 5.2rem);
+  }
+
+  .home-title-pretending {
+    font-size: clamp(3.4rem, 8.7vw, 5.8rem);
+  }
+
+  .home-links,
+  .state-of-affairs,
+  .home-latest {
+    grid-column: 1 / -1;
+  }
+
+  .home-links {
+    width: min(100%, 22rem);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .state-of-affairs {
+    width: min(100%, 28rem);
+    justify-self: center;
+    margin-top: 1rem;
+    transform: none;
+  }
+
+  .home-latest-heading,
+  .home-latest .publication-card:nth-of-type(2),
+  .home-latest .publication-card:nth-of-type(3),
+  .home-latest .publication-card:nth-of-type(4) {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-console {
+    display: block;
+  }
+
+  .home-hero {
+    padding-top: 0.7rem;
+  }
+
+  .home-title {
+    display: block;
+    white-space: normal;
+  }
+
+  .home-title-genuine,
+  .home-title-pretending {
+    display: block;
+  }
+
+  .home-title-pretending {
+    margin-top: 0.05em;
+    transform: rotate(-1deg) skewX(-4deg);
+  }
+
+  .home-links {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .home-link-bar {
+    min-height: 3.8rem;
+  }
+
+  .home-link-bar:hover,
+  .home-link-bar:focus-visible {
+    transform: none;
+  }
+
+  .state-of-affairs {
+    width: 100%;
+  }
+
+  .home-latest {
+    margin-top: 2.4rem;
+  }
+
+  .home-latest-heading {
+    display: block;
+  }
+
+  .home-latest-heading h2 {
+    margin-top: 0.25rem;
+  }
+}

@@ -1,25 +1,55 @@
-<!DOCTYPE html>
-<!-- All this stuff at the top is just default metadata stuff, can ignore -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Here I'm importing the style.css file so you can change fonts, colours, etc. -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- This sets the title that shows up in the tab -->
-    <title>Roxanne Wolfe</title>
-</head>
+---
+layout: default
+title: Home
+extra_css: /assets/css/home.css
+---
+<section class="home-console">
+  <header class="home-hero">
+    <p class="home-eyebrow">Independent journal / Roxanne Maclaurin Wolfe</p>
+    <h1 class="home-title" aria-label="Genuine Pretending">
+      <span class="home-title-genuine">Genuine</span>
+      <span class="home-title-pretending">Pretending</span>
+    </h1>
+    <p class="home-description">{{ site.description }}</p>
+  </header>
 
-<!-- The <body> element contains all the actual content of the page -->
-<body>
-    <h1>It works!</h1>
-    <p>The journal will live here.</p>
-    <hr>
-    <h2>Posts</h2>
-    <!-- A div is basically a section of stuff, which can have separate styling/layout stuff -->
-    <div class="posts-container">
-        <!-- An <a> is a link, the href tag is what it links to -->
-        <a href="./posts/test-1.html">Hello world</a>
+  <nav class="home-links" aria-label="Journal sections">
+    <a class="home-link-bar home-link-bar--discourse" href="{{ '/archive/?type=discourse' | relative_url }}">
+      <span class="home-link-label">Discourse</span>
+    </a>
+    <a class="home-link-bar home-link-bar--cultural" href="{{ '/archive/?type=cultural' | relative_url }}">
+      <span class="home-link-label">Cultural</span>
+    </a>
+    <a class="home-link-bar home-link-bar--blog" href="{{ '/blog/' | relative_url }}">
+      <span class="home-link-label">Blog</span>
+    </a>
+    <a class="home-link-bar home-link-bar--about" href="{{ '/about/' | relative_url }}">
+      <span class="home-link-label">About Me</span>
+    </a>
+  </nav>
+
+  <section class="state-of-affairs">
+    <p class="state-of-affairs-kicker">Pinned editorial</p>
+    <p class="state-of-affairs-date"><time datetime="{{ site.data.state.date }}">{{ site.data.state.date | date: "%d %B %Y" }}</time></p>
+    <h2>{{ site.data.state.title }}</h2>
+    <p>{{ site.data.state.body }}</p>
+    {% if site.data.state.links %}
+      <p class="state-of-affairs-links">
+        {% for link in site.data.state.links %}
+          <a href="{{ link.url | relative_url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+  </section>
+
+  <section class="home-latest">
+    <div class="home-latest-heading">
+      <p>Current writing</p>
+      <h2>Latest publications</h2>
     </div>
-</body>
-</html>
+    {% assign latest = site.publications | sort: "date" | reverse %}
+    {% for item in latest limit:3 %}
+      {% include publication-card.html item=item %}
+    {% endfor %}
+  </section>
+</section>

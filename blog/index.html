@@ -1,0 +1,107 @@
+---
+layout: default
+title: Blog
+extra_css: /assets/css/blog.css
+---
+<section class="blog-page">
+  <header class="blog-intro">
+    <div class="blog-intro-copy">
+      <h1><span class="blog-title-my">My</span><span class="blog-title-accent">Blog</span></h1>
+      <p>{{ site.data.state.blog.description }}</p>
+    </div>
+
+    <div class="blog-status" aria-label="Current blog status">
+      <p class="blog-status-line">
+        <span class="blog-status-accent blog-status-accent--orange">{{ site.data.state.blog.status.line_one.accent }}</span>
+        <span>{{ site.data.state.blog.status.line_one.text }}</span>
+      </p>
+      <p class="blog-status-line">
+        <span class="blog-status-accent blog-status-accent--purple">{{ site.data.state.blog.status.line_two.accent }}</span>
+        <span>{{ site.data.state.blog.status.line_two.text }}</span>
+      </p>
+    </div>
+  </header>
+
+  {% assign publication_notes = site.publications | where_exp: "item", "item.blog_note" %}
+  {% assign blog_entries = site.blog | concat: publication_notes | sort: "date" | reverse %}
+
+  <aside class="blog-dates findme" aria-label="Find blog entries">
+    <h2>FindMe</h2>
+
+    <div class="findme-types" aria-label="Filter blog entries by type">
+      <button type="button" class="findme-type findme-type--discourse" data-blog-filter="discourse" aria-pressed="false" aria-label="Show discourse only" title="Discourse"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--cultural" data-blog-filter="cultural" aria-pressed="false" aria-label="Show cultural commentary only" title="Cultural"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--slice-of-life" data-blog-filter="slice-of-life" aria-pressed="false" aria-label="Show slice of life only" title="Slice of Life"><span aria-hidden="true"></span></button>
+      <button type="button" class="findme-type findme-type--blog" data-blog-filter="blog" aria-pressed="false" aria-label="Show standard blog notes only" title="Blog"><span aria-hidden="true"></span></button>
+    </div>
+
+    <div class="findme-dates" aria-label="Jump to month">
+      {% assign year_groups = blog_entries | group_by_exp: "entry", "entry.date | date: '%Y'" %}
+      {% for year_group in year_groups %}
+        <section class="findme-year">
+          <h3>{{ year_group.name }}</h3>
+          {% assign month_groups = year_group.items | group_by_exp: "entry", "entry.date | date: '%Y-%m'" %}
+          <div class="findme-months">
+            {% for month_group in month_groups %}
+              <button type="button" class="findme-month" data-month-jump="{{ month_group.name }}">{{ month_group.items.first.date | date: "%B" }}</button>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  </aside>
+
+  <div class="blog-stream">
+    {% for entry in blog_entries %}
+      {% assign entry_month = entry.date | date: '%Y-%m' %}
+      {% if entry.blog_note %}
+        <details class="blog-entry blog-entry--publication-note blog-entry--{{ entry.type | default: 'publication' }}" id="blog-publication-{{ entry.slug }}" data-blog-type="{{ entry.type | default: 'publication' }}" data-blog-month="{{ entry_month }}">
+          <summary class="blog-entry-summary">
+            <span class="blog-entry-summary-inner">
+              <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
+              <span class="blog-entry-title" role="heading" aria-level="2">About {{ entry.title }}</span>
+              {% if entry.type == 'discourse' %}
+                <span class="blog-entry-kind">DISCOURSE</span>
+              {% elsif entry.type == 'cultural' %}
+                <span class="blog-entry-kind">CULTURAL</span>
+              {% else %}
+                <span class="blog-entry-kind">PUBLICATION</span>
+              {% endif %}
+              {% if entry.author_note %}
+                <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.author_note }}”</span>
+              {% elsif entry.summary %}
+                <span class="blog-entry-preview blog-entry-preview--quote">“{{ entry.summary }}”</span>
+              {% endif %}
+              <a class="blog-entry-preview-link" href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a>
+            </span>
+          </summary>
+          <div class="blog-entry-expanded">
+            {{ entry.blog_note | markdownify }}
+            <p class="blog-entry-read-link"><a href="{{ entry.url | relative_url }}">Read {{ entry.title }}</a></p>
+          </div>
+        </details>
+      {% else %}
+        {% assign blog_kind = entry.kind | default: 'blog' %}
+        <details class="blog-entry blog-entry--{{ blog_kind }}" id="blog-{{ entry.date | date: '%Y-%m-%d' }}-{{ forloop.index }}" data-blog-type="{{ blog_kind }}" data-blog-month="{{ entry_month }}">
+          <summary class="blog-entry-summary">
+            <span class="blog-entry-summary-inner">
+              <span class="blog-entry-date"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%d %B %Y" }}</time></span>
+              {% if entry.title %}<span class="blog-entry-title" role="heading" aria-level="2">{{ entry.title }}</span>{% endif %}
+              {% if blog_kind == 'slice-of-life' %}<span class="blog-entry-kind">SLICE OF LIFE</span>{% endif %}
+              {% if entry.preview %}<span class="blog-entry-preview">{{ entry.preview }}</span>{% endif %}
+            </span>
+          </summary>
+          <div class="blog-entry-expanded">
+            {{ entry.content }}
+            {% if entry.related_publication %}
+              {% assign related = site.publications | where: "slug", entry.related_publication | first %}
+              {% if related %}<p class="blog-entry-read-link"><a href="{{ related.url | relative_url }}">Related publication: {{ related.title }}</a></p>{% endif %}
+            {% endif %}
+          </div>
+        </details>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script src="{{ '/assets/js/blog-cards.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
