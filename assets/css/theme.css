@@ -1,6 +1,6 @@
 :root {
   color-scheme: light;
-  --page-bg: #f7f7f4;
+  --page-bg: #f6f9fa;
   --text: #171717;
   --surface: #ffffff;
   --surface-soft: #efefeb;
@@ -31,9 +31,6 @@ body {
   color: var(--text);
 }
 
-.site-header {
-  border-bottom-color: var(--border);
-}
 
 .author-note,
 .publication-footer,
