@@ -58,6 +58,24 @@
   line-height: 1.55;
 }
 
+.home-photo-week {
+  grid-column: 1 / 5;
+  box-sizing: border-box;
+  width: min(100%, 18rem);
+  margin: 1.2rem 0 0;
+  padding: 0;
+  justify-self: start;
+  border: 1px solid rgba(140, 140, 140, 0.78);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.home-photo-week img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .home-links {
   grid-column: 5 / 9;
   display: grid;
@@ -244,10 +262,17 @@
     font-size: clamp(3.4rem, 8.7vw, 5.8rem);
   }
 
+  .home-photo-week,
   .home-links,
   .state-of-affairs,
   .home-latest {
     grid-column: 1 / -1;
+  }
+
+  .home-photo-week {
+    width: min(100%, 18rem);
+    justify-self: center;
+    margin: 1rem auto 0;
   }
 
   .home-links {
@@ -293,6 +318,11 @@
   .home-title-pretending {
     margin-top: 0.05em;
     transform: rotate(-1deg) skewX(-4deg);
+  }
+
+  .home-photo-week {
+    width: min(100%, 18rem);
+    margin: 1.5rem auto 0;
   }
 
   .home-links {
