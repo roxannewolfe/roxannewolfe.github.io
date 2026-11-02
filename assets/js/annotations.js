@@ -11,7 +11,7 @@
     const rects = [...highlight.getClientRects()];
     if (!rects.length) return;
 
-    const anchor = rects[rects.length - 1];
+    const anchor = rects[0];
     const bubbleRect = bubble.getBoundingClientRect();
     const viewportPadding = 12;
     const desiredCenter = anchor.left + (anchor.width / 2);
