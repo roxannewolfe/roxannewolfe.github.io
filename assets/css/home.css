@@ -78,7 +78,7 @@
   gap: 0.65rem;
   width: min(100%, 22rem);
   margin: 0.95rem auto 0;
-  align-self: start;
+  align-self: center;
   justify-self: center;
   transform: translateX(-20px);
 }
