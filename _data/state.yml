@@ -9,6 +9,9 @@ links:
   - label: Read the blog
     url: /blog/
 
+photo_week:
+  border_color: "#8c8c8c"
+
 blog:
   description: >
     An ongoing stream of my life, where I have discussions on my recent work,
