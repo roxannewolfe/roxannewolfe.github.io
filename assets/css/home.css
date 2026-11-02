@@ -61,10 +61,14 @@
 .home-photo-week {
   grid-column: 1 / 5;
   display: block;
+  box-sizing: border-box;
   width: min(100%, 18rem);
   height: auto;
   margin: 1.2rem 0 0;
   justify-self: start;
+  border: 2px solid var(--photo-border, #8c8c8c);
+  transform: rotate(4deg);
+  transform-origin: center;
 }
 
 .home-links {
@@ -76,6 +80,7 @@
   margin: 0.95rem auto 0;
   align-self: start;
   justify-self: center;
+  transform: translateX(-20px);
 }
 
 .home-link-bar {
@@ -270,6 +275,7 @@
     width: min(100%, 22rem);
     margin-left: auto;
     margin-right: auto;
+    transform: none;
   }
 
   .state-of-affairs {
