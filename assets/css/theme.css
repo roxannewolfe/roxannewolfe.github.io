@@ -1,8 +1,8 @@
 :root {
   color-scheme: light;
-  --page-bg: #f6f9fa;
+  --page-bg: #ffffff;
   --text: #171717;
-  --surface: #ffffff;
+  --surface: #f6f9fa;
   --surface-soft: #efefeb;
   --border: rgba(23, 23, 23, 0.34);
   --border-strong: rgba(23, 23, 23, 0.7);
