@@ -1,19 +1,39 @@
-html body {
+.home-background {
+  --home-bg-shift: 0px;
+  position: fixed;
+  top: -45vh;
+  right: 0;
+  bottom: -85vh;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
     url("/assets/images/home-background-experiment.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  transform: translate3d(0, calc(-1 * var(--home-bg-shift)), 0);
+  will-change: transform;
 }
 
 @media (prefers-color-scheme: dark) {
-  html body {
+  .home-background {
     background-image:
       linear-gradient(rgba(23, 23, 23, 0.22), rgba(23, 23, 23, 0.22)),
       url("/assets/images/home-background-experiment.png");
   }
+}
+
+.site-header-shell,
+#main-content,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header-shell {
+  z-index: 2;
 }
 
 .home-console {
@@ -113,6 +133,18 @@ html body {
   text-align: center;
   text-decoration: none;
   transition: transform 130ms ease, background 130ms ease, border-color 130ms ease;
+}
+
+.home-link-bar,
+.state-of-affairs,
+.home-latest .publication-card {
+  -webkit-backdrop-filter: blur(36px) saturate(125%);
+  backdrop-filter: blur(36px) saturate(125%);
+}
+
+.state-of-affairs,
+.home-latest .publication-card {
+  background: transparent;
 }
 
 .home-link-label {
