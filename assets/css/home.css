@@ -1,3 +1,21 @@
+body {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
+    url("/assets/images/home-background-experiment.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image:
+      linear-gradient(rgba(23, 23, 23, 0.22), rgba(23, 23, 23, 0.22)),
+      url("/assets/images/home-background-experiment.webp");
+  }
+}
+
 .home-console {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
