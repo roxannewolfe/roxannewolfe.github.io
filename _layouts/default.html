@@ -13,9 +13,6 @@
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}?v={{ asset_version }}">
   <link rel="stylesheet" href="{{ '/assets/css/annotations.css' | relative_url }}?v={{ asset_version }}">
-  {% if page.extra_css_after_theme %}
-    <link rel="stylesheet" href="{{ page.extra_css_after_theme | relative_url }}?v={{ asset_version }}">
-  {% endif %}
 </head>
 <body>
   <header class="site-header-shell">
