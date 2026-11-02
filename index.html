@@ -14,4 +14,46 @@ extra_css: /assets/css/home.css
   </header>
 
   <figure class="home-photo-week">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUF
+    <img src="{{ '/assets/images/photo-of-week.svg' | relative_url }}" alt="Labyrinth meme with Jareth and Sarah, captioned 'I see you're trapped in my gay and stupid maze again'">
+  </figure>
+
+  <nav class="home-links" aria-label="Journal sections">
+    <a class="home-link-bar home-link-bar--discourse" href="{{ '/archive/?type=discourse' | relative_url }}">
+      <span class="home-link-label">Discourse</span>
+    </a>
+    <a class="home-link-bar home-link-bar--cultural" href="{{ '/archive/?type=cultural' | relative_url }}">
+      <span class="home-link-label">Cultural</span>
+    </a>
+    <a class="home-link-bar home-link-bar--blog" href="{{ '/blog/' | relative_url }}">
+      <span class="home-link-label">Blog</span>
+    </a>
+    <a class="home-link-bar home-link-bar--about" href="{{ '/about/' | relative_url }}">
+      <span class="home-link-label">About Me</span>
+    </a>
+  </nav>
+
+  <section class="state-of-affairs">
+    <p class="state-of-affairs-kicker">Pinned editorial</p>
+    <p class="state-of-affairs-date"><time datetime="{{ site.data.state.date }}">{{ site.data.state.date | date: "%d %B %Y" }}</time></p>
+    <h2>{{ site.data.state.title }}</h2>
+    <p>{{ site.data.state.body }}</p>
+    {% if site.data.state.links %}
+      <p class="state-of-affairs-links">
+        {% for link in site.data.state.links %}
+          <a href="{{ link.url | relative_url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+  </section>
+
+  <section class="home-latest">
+    <div class="home-latest-heading">
+      <p>Current writing</p>
+      <h2>Latest publications</h2>
+    </div>
+    {% assign latest = site.publications | sort: "date" | reverse %}
+    {% for item in latest limit:3 %}
+      {% include publication-card.html item=item %}
+    {% endfor %}
+  </section>
+</section>
