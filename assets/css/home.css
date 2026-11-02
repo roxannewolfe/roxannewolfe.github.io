@@ -1,4 +1,4 @@
-body {
+html body {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
     url("/assets/images/home-background-experiment.png");
@@ -9,7 +9,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
+  html body {
     background-image:
       linear-gradient(rgba(23, 23, 23, 0.22), rgba(23, 23, 23, 0.22)),
       url("/assets/images/home-background-experiment.png");
