@@ -9,6 +9,7 @@
   --border-soft: rgba(23, 23, 23, 0.18);
   --bubble-bg: #ffffff;
   --shadow: rgba(0, 0, 0, 0.14);
+  --header-bg: linear-gradient(90deg, #f4d6bd 0%, #ded1f0 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
     --border-soft: rgba(255, 255, 255, 0.2);
     --bubble-bg: #242424;
     --shadow: rgba(0, 0, 0, 0.28);
+    --header-bg: linear-gradient(90deg, #6f3fb5 0%, #d97932 100%);
   }
 }
 
@@ -31,6 +33,9 @@ body {
   color: var(--text);
 }
 
+.site-header-shell {
+  background: var(--header-bg);
+}
 
 .author-note,
 .publication-footer,
