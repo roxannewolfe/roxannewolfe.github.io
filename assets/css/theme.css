@@ -9,8 +9,8 @@
   --border-soft: rgba(23, 23, 23, 0.18);
   --bubble-bg: #ffffff;
   --shadow: rgba(0, 0, 0, 0.14);
-  --header-bg: linear-gradient(90deg, #f4d6bd 0%, #e9c2d2 54%, #f2bd8a 76%, #f1a35e 100%);
-  --header-bg: linear-gradient(90deg in oklch, #f4d6bd 0%, #e7bfd5 48%, #edb58f 70%, #f2a05c 100%);
+  --header-bg: linear-gradient(90deg, #f4d6bd 0%, #e7bfd5 50%, #ded1f0 100%);
+  --header-bg: linear-gradient(90deg in oklch, #f4d6bd 0%, #e7bfd5 50%, #ded1f0 100%);
 }
 
 @media (prefers-color-scheme: dark) {
