@@ -11,7 +11,8 @@
       return;
     }
 
-    const offset = window.scrollY * 0.2;
+    const maxOffset = window.innerHeight * 0.18;
+    const offset = Math.min(window.scrollY * 0.2, maxOffset);
     body.style.setProperty('--home-bg-parallax', `${offset}px`);
   }
 
