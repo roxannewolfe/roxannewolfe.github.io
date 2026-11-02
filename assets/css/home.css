@@ -67,7 +67,7 @@
   margin: 1.2rem 0 0;
   justify-self: start;
   border: 2px solid var(--photo-border, #8c8c8c);
-  transform: rotate(4deg);
+  transform: rotate(2deg);
   transform-origin: center;
 }
 
