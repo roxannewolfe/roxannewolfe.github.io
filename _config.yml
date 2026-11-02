@@ -3,10 +3,11 @@ description: A small journal of academic and personal life by Roxanne Maclaurin 
 url: "https://roxannewolfe.github.io"
 baseurl: ""
 
+future: true
+
 collections:
   publications:
     output: true
-    future: true
     permalink: /publication/:name/
   blog:
     output: false
