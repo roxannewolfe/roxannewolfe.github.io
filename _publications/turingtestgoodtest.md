@@ -2,7 +2,7 @@
 title: "What is the Turing test and is it a good test?"
 date: 2026-11-03
 type: discourse
-slug: turing_test
+slug: turingtestgoodtest
 topics:
   - essay
   - philosophy
