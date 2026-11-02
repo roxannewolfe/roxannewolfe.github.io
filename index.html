@@ -13,7 +13,7 @@ extra_css: /assets/css/home.css
     <p class="home-description">{{ site.description }}</p>
   </header>
 
-  <img class="home-photo-week" src="{{ '/assets/images/photo-of-week.png' | relative_url }}" alt="Labyrinth meme with Jareth and Sarah, captioned 'I see you're trapped in my gay and stupid maze again'">
+  <img class="home-photo-week" src="{{ '/assets/images/photo-of-week.png' | relative_url }}" alt="Labyrinth meme with Jareth and Sarah, captioned 'I see you're trapped in my gay and stupid maze again'" style="--photo-border: {{ site.data.state.photo_week.border_color | default: '#8c8c8c' }};">
 
   <nav class="home-links" aria-label="Journal sections">
     <a class="home-link-bar home-link-bar--discourse" href="{{ '/archive/?type=discourse' | relative_url }}">
