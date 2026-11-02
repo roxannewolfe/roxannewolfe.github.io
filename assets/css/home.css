@@ -60,20 +60,11 @@
 
 .home-photo-week {
   grid-column: 1 / 5;
-  box-sizing: border-box;
-  width: min(100%, 18rem);
-  margin: 1.2rem 0 0;
-  padding: 0;
-  justify-self: start;
-  border: 1px solid rgba(140, 140, 140, 0.78);
-  border-radius: 0;
-  overflow: hidden;
-}
-
-.home-photo-week img {
   display: block;
-  width: 100%;
+  width: min(100%, 18rem);
   height: auto;
+  margin: 1.2rem 0 0;
+  justify-self: start;
 }
 
 .home-links {
