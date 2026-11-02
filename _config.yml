@@ -6,6 +6,7 @@ baseurl: ""
 collections:
   publications:
     output: true
+    future: true
     permalink: /publication/:name/
   blog:
     output: false
