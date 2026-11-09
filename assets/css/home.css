@@ -36,6 +36,14 @@
   z-index: 2;
 }
 
+/* Keep homepage copy legible over the artwork without changing the header. */
+@media (prefers-color-scheme: light) {
+  .home-console,
+  .site-footer {
+    color: #ffffff;
+  }
+}
+
 .home-console {
   position: relative;
   z-index: 1;
