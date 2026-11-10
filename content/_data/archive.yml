@@ -1,3 +1,8 @@
+# Optional JPG background for the archive navigation page.
+# Upload the image to content/images/, then set background_image to its site path.
+# Leave blank to keep the existing plain background.
+background_image:
+
 # The archive entries themselves come automatically from content/_publications/.
 descriptions:
   all: "All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into."

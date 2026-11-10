@@ -33,6 +33,10 @@ Create a Markdown file in `_blog/`. Include `date`, `title`, `preview`, and `kin
 
 Change `_data/state.yml` for the pinned editorial. Change `_data/home.yml` for the homepage heading, description, section links, and photo appearance. Replace files in `images/` using the same filenames, or change the image paths in `home.yml`. Light/dark visual treatments and scrolling remain in the separate code files.
 
+## Archive and Blog backgrounds
+
+Both navigation pages support an optional static JPG background. Upload an image into `content/images/`, then set `background_image: /content/images/your-file.jpg` in `_data/archive.yml` or `_data/blog.yml`. Leave the field blank to use the usual solid background. The two pages can use separate images or the same file. This does not affect individual publication reading pages. The background is fixed in place without homepage parallax.
+
 ## Updating the other pages
 
 Change `_data/blog.yml`, `_data/archive.yml`, `_data/about.yml`, or `_data/events.yml` to edit their text. Add event objects under `items` in `events.yml` when screenings or talks are scheduled. The Archive listing itself is generated from `_publications/`, so there is no separate list to update. Change `_data/navigation.yml` for the top menu, and `_data/site.yml` for the journal name and credit.

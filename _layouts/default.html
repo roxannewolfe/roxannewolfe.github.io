@@ -1,5 +1,6 @@
 {% assign asset_version = site.time | date: '%s' %}
 {% assign site_copy = site.data.site %}
+{% assign navigation_background_data = site.data[page.background_data] %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,10 @@
   <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}?v={{ asset_version }}">
   <link rel="stylesheet" href="{{ '/assets/css/annotations.css' | relative_url }}?v={{ asset_version }}">
 </head>
-<body>
+<body{% if navigation_background_data.background_image %} class="has-navigation-background"{% endif %}>
+  {% if navigation_background_data.background_image %}
+    <div class="navigation-background" aria-hidden="true" style="--navigation-background-image: url('{{ navigation_background_data.background_image | relative_url }}');"></div>
+  {% endif %}
   <header class="site-header-shell">
     <div class="site-header">
       <div class="site-branding">
