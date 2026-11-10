@@ -3,19 +3,19 @@ layout: default
 title: About this journal
 ---
 <section class="about-page">
-  <h1>About this journal</h1>
-  <p>This page will eventually explain the journal, what it publishes, and how the project fits together.</p>
+  <h1>{{ site.data.about.title }}</h1>
+  <p>{{ site.data.about.intro }}</p>
 
   <section class="about-journal">
-    <h2>The journal</h2>
-    <p>Placeholder: journal statement.</p>
+    <h2>{{ site.data.about.journal.heading }}</h2>
+    {{ site.data.about.journal.body | markdownify }}
   </section>
 
   <section class="about-author">
-    <div class="author-photo-placeholder" aria-label="Author photograph placeholder">Author photo</div>
+    <div class="author-photo-placeholder" aria-label="Author photograph placeholder">{{ site.data.about.author.photo_placeholder }}</div>
     <div>
-      <h2>Roxanne Maclaurin Wolfe <small>(she/her)</small></h2>
-      <p>Placeholder: author statement.</p>
+      <h2>{{ site.data.about.author.name }} <small>({{ site.data.about.author.pronouns }})</small></h2>
+      {{ site.data.about.author.body | markdownify }}
     </div>
   </section>
 </section>

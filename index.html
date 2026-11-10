@@ -4,37 +4,30 @@ title: Home
 extra_css: /assets/css/home.css
 extra_js: /assets/js/home-background.js
 ---
-<div class="home-background" aria-hidden="true"></div>
+<div class="home-background" aria-hidden="true" style="--home-background-image: url('{{ site.data.home.background_image | relative_url }}');"></div>
 
 <section class="home-console">
   <header class="home-hero">
-    <p class="home-eyebrow">Independent journal / Roxanne Maclaurin Wolfe</p>
-    <h1 class="home-title" aria-label="Genuine Pretending">
-      <span class="home-title-genuine">Genuine</span>
-      <span class="home-title-pretending">Pretending</span>
+    <p class="home-eyebrow">{{ site.data.home.eyebrow }}</p>
+    <h1 class="home-title" aria-label="{{ site.data.site.title | escape }}">
+      <span class="home-title-genuine">{{ site.data.home.title.first }}</span>
+      <span class="home-title-pretending">{{ site.data.home.title.second }}</span>
     </h1>
-    <p class="home-description">{{ site.description }}</p>
+    <p class="home-description">{{ site.data.home.description }}</p>
   </header>
 
-  <img class="home-photo-week" src="{{ '/assets/images/photo-of-week.png' | relative_url }}" alt="Labyrinth meme with Jareth and Sarah, captioned 'I see you're trapped in my gay and stupid maze again'" style="--photo-border: {{ site.data.state.photo_week.border_color | default: '#8c8c8c' }};">
+  <img class="home-photo-week" src="{{ site.data.home.photo_week.image | relative_url }}" alt="{{ site.data.home.photo_week.alt | escape }}" style="--photo-border: {{ site.data.home.photo_week.border_color | default: '#8c8c8c' }};">
 
   <nav class="home-links" aria-label="Journal sections">
-    <a class="home-link-bar home-link-bar--discourse" href="{{ '/archive/?type=discourse' | relative_url }}">
-      <span class="home-link-label">Discourse</span>
-    </a>
-    <a class="home-link-bar home-link-bar--cultural" href="{{ '/archive/?type=cultural' | relative_url }}">
-      <span class="home-link-label">Cultural</span>
-    </a>
-    <a class="home-link-bar home-link-bar--blog" href="{{ '/blog/' | relative_url }}">
-      <span class="home-link-label">Blog</span>
-    </a>
-    <a class="home-link-bar home-link-bar--about" href="{{ '/about/' | relative_url }}">
-      <span class="home-link-label">About Me</span>
-    </a>
+    {% for link in site.data.home.sections %}
+      <a class="home-link-bar home-link-bar--{{ link.type }}" href="{{ link.url | relative_url }}">
+        <span class="home-link-label">{{ link.label }}</span>
+      </a>
+    {% endfor %}
   </nav>
 
   <section class="state-of-affairs">
-    <p class="state-of-affairs-kicker">Pinned editorial</p>
+    <p class="state-of-affairs-kicker">{{ site.data.home.pinned_label }}</p>
     <p class="state-of-affairs-date"><time datetime="{{ site.data.state.date }}">{{ site.data.state.date | date: "%d %B %Y" }}</time></p>
     <h2>{{ site.data.state.title }}</h2>
     <p>{{ site.data.state.body }}</p>
@@ -49,8 +42,8 @@ extra_js: /assets/js/home-background.js
 
   <section class="home-latest">
     <div class="home-latest-heading">
-      <p>Current writing</p>
-      <h2>Latest publications</h2>
+      <p>{{ site.data.home.current_writing_label }}</p>
+      <h2>{{ site.data.home.latest_heading }}</h2>
     </div>
     {% assign latest = site.publications | sort: "date" | reverse %}
     {% for item in latest limit:3 %}

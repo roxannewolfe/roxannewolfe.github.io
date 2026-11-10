@@ -1,0 +1,11 @@
+title: "About this journal"
+intro: >
+  This page will eventually explain the journal, what it publishes, and how the project fits together.
+journal:
+  heading: "The journal"
+  body: "Placeholder: journal statement."
+author:
+  name: "Roxanne Maclaurin Wolfe"
+  pronouns: "she/her"
+  photo_placeholder: "Author photo"
+  body: "Placeholder: author statement."

@@ -10,10 +10,10 @@ extra_css: /assets/css/archive.css
       <span>Archive</span>
     </h1>
     <p id="archive-description"
-       data-description-all="All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into."
-       data-description-discourse="Discourse gathers longer-form arguments, philosophical explorations, academic work, and other pieces built around sustained ideas and discussion."
-       data-description-cultural="Cultural gathers reviews, media criticism, responses to news, and other commentary on the cultural world around the journal.">
-      All publications live here: discourse, cultural commentary, and whatever other forms the journal grows into.
+       data-description-all="{{ site.data.archive.descriptions.all | escape }}"
+       data-description-discourse="{{ site.data.archive.descriptions.discourse | escape }}"
+       data-description-cultural="{{ site.data.archive.descriptions.cultural | escape }}">
+      {{ site.data.archive.descriptions.all }}
     </p>
   </header>
 

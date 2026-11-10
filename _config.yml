@@ -3,6 +3,10 @@ description: A small journal of academic and personal life by Roxanne Maclaurin 
 url: "https://roxannewolfe.github.io"
 baseurl: ""
 
+# All regularly edited content lives in /content.
+collections_dir: content
+data_dir: content/_data
+
 future: true
 
 collections:

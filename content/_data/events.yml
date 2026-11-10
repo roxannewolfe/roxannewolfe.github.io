@@ -1,0 +1,5 @@
+title: Events
+intro: "Upcoming screenings, talks, reading groups, or other journal-adjacent events can live here."
+empty_message: "No events listed yet."
+# Add entries as: title, date (YYYY-MM-DD), description, location (optional), url (optional).
+items: []

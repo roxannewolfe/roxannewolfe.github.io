@@ -1,0 +1,27 @@
+# Text and images on the homepage. Update these fields without editing HTML or CSS.
+eyebrow: "Independent journal / Roxanne Maclaurin Wolfe"
+description: "A small journal of academic and personal life by Roxanne Maclaurin Wolfe."
+title:
+  first: Genuine
+  second: Pretending
+background_image: /content/images/home-background.jpg
+photo_week:
+  image: /content/images/photo-of-week.png
+  alt: "Photo of the week"
+  border_color: "#8c8c8c"
+sections:
+  - label: Discourse
+    type: discourse
+    url: /archive/?type=discourse
+  - label: Cultural
+    type: cultural
+    url: /archive/?type=cultural
+  - label: Blog
+    type: blog
+    url: /blog/
+  - label: About Me
+    type: about
+    url: /about/
+pinned_label: "Pinned editorial"
+current_writing_label: "Current writing"
+latest_heading: "Latest publications"
