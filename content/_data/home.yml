@@ -6,7 +6,7 @@ title:
   second: Pretending
 background_image: /content/images/home-background.jpg
 photo_week:
-  image: /content/images/photo-of-week.png
+  image: /content/images/photo-of-week.gif
   alt: "Photo of the week"
   border_color: "#8c8c8c"
 sections:
