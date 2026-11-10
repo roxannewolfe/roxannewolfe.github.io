@@ -44,7 +44,10 @@
     cards.forEach((card) => {
       const cardType = card.dataset.type || '';
       const cardTopics = (card.dataset.topics || '').split(',').filter(Boolean);
-      const typeMatches = activeType === 'all' || cardType === activeType;
+      const typeMatches = activeType === 'all'
+        || (activeType === 'other'
+          ? cardType !== 'discourse' && cardType !== 'cultural'
+          : cardType === activeType);
       const topicMatches = !activeTopic || cardTopics.includes(activeTopic);
       const show = typeMatches && topicMatches;
 
