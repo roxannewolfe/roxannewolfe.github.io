@@ -2,8 +2,8 @@
 .about-title {
   margin: 0 auto 1rem;
   text-align: center;
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.08;
 }
 
 .about-title--purple {
@@ -14,10 +14,17 @@
   color: rgb(213, 126, 58);
 }
 
+/* More breathing room after the introduction, with a bright author-card outline. */
+.about-page .about-author {
+  margin-top: 3rem;
+  border-color: #ffffff;
+}
+
 .about-author .author-photo-placeholder {
   box-sizing: border-box;
   height: 12rem;
   min-height: 12rem;
+  border: 1px solid #ffffff;
   overflow: hidden;
 }
 
