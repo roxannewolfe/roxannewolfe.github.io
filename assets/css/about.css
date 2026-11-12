@@ -14,17 +14,17 @@
   color: rgb(213, 126, 58);
 }
 
-/* More breathing room after the introduction, with a bright author-card outline. */
+/* Match author-card and photo outlines to the active light/dark theme. */
 .about-page .about-author {
   margin-top: 3rem;
-  border-color: #ffffff;
+  border-color: #171717;
 }
 
 .about-author .author-photo-placeholder {
   box-sizing: border-box;
   height: 12rem;
   min-height: 12rem;
-  border: 1px solid #ffffff;
+  border: 1px solid #171717;
   overflow: hidden;
 }
 
@@ -34,4 +34,14 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-page .about-author {
+    border-color: #ffffff;
+  }
+
+  .about-author .author-photo-placeholder {
+    border-color: #ffffff;
+  }
 }
