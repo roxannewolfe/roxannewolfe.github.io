@@ -119,6 +119,9 @@
 }
 
 #publication-archive .publication-card {
+  -webkit-backdrop-filter: blur(36px) saturate(125%);
+  backdrop-filter: blur(36px) saturate(125%);
+  background: transparent;
   position: relative;
   box-sizing: border-box;
   border-radius: 0;
