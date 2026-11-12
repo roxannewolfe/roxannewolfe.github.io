@@ -168,6 +168,9 @@
 }
 
 .blog-entry {
+  -webkit-backdrop-filter: blur(36px) saturate(125%);
+  backdrop-filter: blur(36px) saturate(125%);
+  background: transparent;
   border-radius: 0;
 }
 
