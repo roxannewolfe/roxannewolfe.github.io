@@ -1,0 +1,15 @@
+# Optional JPG background for the blog navigation page.
+# Upload the image to content/images/, then set background_image to its site path.
+# Leave blank to keep the existing plain background.
+background_image:
+
+description: >
+  An ongoing stream of my life, where I have discussions on my recent work,
+  stories from my life, and the occasional mention of studying amongst all the procrastination.
+status:
+  line_one:
+    accent: "Genuinely"
+    text: "tired"
+  line_two:
+    accent: "Pretending"
+    text: "its fine"

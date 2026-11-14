@@ -1,0 +1,12 @@
+- label: Archive
+  url: /archive/
+- label: Discourse
+  url: /archive/?type=discourse
+- label: Cultural
+  url: /archive/?type=cultural
+- label: Blog
+  url: /blog/
+- label: About
+  url: /about/
+- label: Events
+  url: /events/

@@ -1,0 +1,26 @@
+title: Genuine Pretending
+description: A small journal of academic and personal life by Roxanne Maclaurin Wolfe.
+url: "https://roxannewolfe.github.io"
+baseurl: ""
+
+# All regularly edited content lives in /content.
+collections_dir: content
+data_dir: content/_data
+
+future: true
+
+collections:
+  publications:
+    output: true
+    permalink: /publication/:name/
+  blog:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: publication
+
+markdown: kramdown

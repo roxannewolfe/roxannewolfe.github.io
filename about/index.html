@@ -1,0 +1,23 @@
+---
+layout: default
+title: About this blog
+extra_css: /assets/css/about.css
+---
+<section class="about-page">
+  <h1 class="about-title"><span class="about-title--purple">{{ site.data.about.title_parts.first }}</span> {{ site.data.about.title_parts.middle }} <span class="about-title--orange">{{ site.data.about.title_parts.last }}</span></h1>
+  <p>{{ site.data.about.intro }}</p>
+
+  <section class="about-author">
+    <div class="author-photo-placeholder">
+      {% if site.data.about.author.image %}
+        <img src="{{ site.data.about.author.image | relative_url }}" alt="{{ site.data.about.author.image_alt | default: 'Portrait of the author' | escape }}" loading="lazy">
+      {% else %}
+        <span>{{ site.data.about.author.photo_placeholder }}</span>
+      {% endif %}
+    </div>
+    <div>
+      <h2>{{ site.data.about.author.name }} <small>({{ site.data.about.author.pronouns }})</small></h2>
+      {{ site.data.about.author.body | markdownify }}
+    </div>
+  </section>
+</section>

@@ -1,0 +1,13 @@
+<article class="publication-card"
+  data-type="{{ include.item.type | downcase }}"
+  data-topics="{% for topic in include.item.topics %}{{ topic | downcase | slugify }}{% unless forloop.last %},{% endunless %}{% endfor %}">
+  <p class="publication-type">{{ include.item.type | default: 'publication' }}</p>
+  <h2><a href="{{ include.item.url | relative_url }}">{{ include.item.title }}</a></h2>
+  {% if include.item.summary %}<p>{{ include.item.summary }}</p>{% endif %}
+  <p>
+    <time datetime="{{ include.item.date | date_to_xmlschema }}">{{ include.item.date | date: "%d %B %Y" }}</time>
+    {% if include.item.topics and include.item.topics.size > 0 %}
+      · {{ include.item.topics | join: ", " }}
+    {% endif %}
+  </p>
+</article>

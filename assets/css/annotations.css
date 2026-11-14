@@ -1,0 +1,33 @@
+.annotation,
+.annotation-trigger,
+.annotation-highlight {
+  display: inline;
+}
+
+.annotation-trigger {
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+
+.annotation-highlight {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.annotation-bubble {
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  top: 0;
+  bottom: auto;
+  transform: translate(-50%, calc(-100% - 0.75rem));
+  pointer-events: auto;
+}
+
+.annotation-bubble::after {
+  left: 50%;
+}
